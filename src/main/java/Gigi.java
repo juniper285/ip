@@ -70,6 +70,20 @@ public class Gigi {
                     System.out.println(line);
                 }
 
+                else if (command.startsWith("delete")) {
+                    String[] splitCommand = command.split("\\s+");
+                    int index = Integer.parseInt(splitCommand[1]) - 1;
+                    if (index + 1 > input.size()) {
+                        throw new DukeException("MEOW! You don't have that many tasks");
+                    }
+                    System.out.println(line);
+                    System.out.println("MEOW. This task never existed: \n");
+                    System.out.println(input.get(index).toString());
+                    input.remove(index);
+                    System.out.println("You have " + input.size() + " tasks to do.");
+                    System.out.println(line);
+                }
+
                 else {
                     try {
                         if (command.startsWith("todo") ) {
