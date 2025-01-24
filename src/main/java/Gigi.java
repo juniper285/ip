@@ -7,6 +7,7 @@ public class Gigi {
         Scanner sc = new Scanner(System.in);
         ArrayList<Task> input = new ArrayList<>(); // Array to store commands
         String line = "____________________________________________________________ \n";
+
         String logo = "\n" +
                 "⠀ ／|_     \n" +
                 "（ﾟ､ ｡ 7\n" +
