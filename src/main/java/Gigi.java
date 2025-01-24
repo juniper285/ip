@@ -5,7 +5,7 @@ import java.util.*;
 public class Gigi {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        ArrayList<String> input = new ArrayList<>(); // Array to store commands
+        ArrayList<Task> input = new ArrayList<>(); // Array to store commands
         String line = "____________________________________________________________ \n";
 
         String logo = "\n" +
@@ -39,9 +39,38 @@ public class Gigi {
                 }
                 System.out.println(line);
             }
+            else if (command.startsWith("mark")) {
+                String[] splitCommand = command.split("\\s+");
+                int index = Integer.parseInt(splitCommand[1]) - 1;
+                System.out.println(line);
+                System.out.println("Nice! I've marked this task as done:\n");
+                input.get(index).markDone(index);
+                System.out.println(input.get(index).toString());
+                System.out.println(line);
+            }
+
+            else if (command.startsWith("unmark")) {
+                String[] splitCommand = command.split("\\s+");
+                int index = Integer.parseInt(splitCommand[1]) - 1;
+                System.out.println(line);
+                System.out.println("OK, I've marked this task as not done yet:\n");
+                input.get(index).markUndone(index);
+                System.out.println(input.get(index).toString());
+                System.out.println(line);
+            }
+
             else {
-                input.add(command);
-                System.out.println("added: " + command);
+                System.out.println("Aye! I've pawed this task into the list - don't make me scratch it out later. Meow!");
+                Task item = new Task(command);
+                System.out.println(item.toString());
+                input.add(item);
+                if (input.size() == 1) {
+                    System.out.println("Remember now, you have " + input.size() + " task to do.");
+                    System.out.println(line);
+                } else {
+                    System.out.println("Remember now, you have " + input.size() + " tasks to do.");
+                    System.out.println(line);
+                }
             }
         }
     }
