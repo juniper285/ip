@@ -26,3 +26,4 @@ public class Event extends Task{
         return super.toString() + " (from: " + startTime + " to: " + endTime + ")";
     }
 }
+
