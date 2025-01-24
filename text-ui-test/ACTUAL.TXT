@@ -1,0 +1,92 @@
+____________________________________________________________ 
+
+
+? ?|_     
+??? ? 7
+? |??~?
+  ??f_, )? 
+MEOW! 
+I'm Gigi, the mighty demon keeping this place running. 
+What do you want? 
+
+____________________________________________________________ 
+
+____________________________________________________________ 
+
+Aye! I've pawed this task into the list - don't make me scratch it out later. Meow!
+[T][ ] read book
+Remember now, you have 1 task to do.
+____________________________________________________________ 
+
+____________________________________________________________ 
+
+Where is your todo?
+____________________________________________________________ 
+
+____________________________________________________________ 
+
+Aye! I've pawed this task into the list - don't make me scratch it out later. Meow!
+[D][ ] submit assignment (by: Friday)
+Remember now, you have 2 tasks to do.
+____________________________________________________________ 
+
+____________________________________________________________ 
+
+MEOW!!! The deadline must include a '/by' clause.
+____________________________________________________________ 
+
+Aye! I've pawed this task into the list - don't make me scratch it out later. Meow!
+[E][ ] team meeting (from: Monday 2pm to: 3pm)
+Remember now, you have 3 tasks to do.
+____________________________________________________________ 
+
+____________________________________________________________ 
+
+MEOW!!! The event must include '/from' and '/to' clauses.
+____________________________________________________________ 
+
+____________________________________________________________ 
+
+Don't forget what you have to do:
+1. [T][ ] read book
+2. [D][ ] submit assignment (by: Friday)
+3. [E][ ] team meeting (from: Monday 2pm to: 3pm)
+____________________________________________________________ 
+
+____________________________________________________________ 
+
+Nice! I've marked this task as done:
+
+[T][X] read book
+____________________________________________________________ 
+
+____________________________________________________________ 
+
+OK, I've marked this task as not done yet:
+
+[T][ ] read book
+____________________________________________________________ 
+
+____________________________________________________________ 
+
+MEOW. This task never existed: 
+
+[D][ ] submit assignment (by: Friday)
+You have 2 tasks to do.
+____________________________________________________________ 
+
+____________________________________________________________ 
+
+MEOW! You don't have that many tasks
+____________________________________________________________ 
+
+____________________________________________________________ 
+
+I've got no clue what that means - care to explain?
+____________________________________________________________ 
+
+____________________________________________________________ 
+
+See ya! Don't forget - this mighty fiery feline doesn't wait forever. Meow!
+____________________________________________________________ 
+
