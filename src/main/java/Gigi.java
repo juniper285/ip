@@ -5,7 +5,7 @@ import java.util.*;
 public class Gigi {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        ArrayList<Task> input = new ArrayList<>(); // Array to store commands
+        ArrayList<String> input = new ArrayList<>(); // Array to store commands
         String line = "____________________________________________________________ \n";
 
         String logo = "\n" +
@@ -29,8 +29,19 @@ public class Gigi {
                         "See ya! Don't forget - this mighty fiery feline doesn't wait forever. Meow!");
                 System.out.println(line);
             }
+            else if (command.equals("list")) {
+                System.out.println(line);
+                System.out.println("Don't forget what you have to do:");
+                for (int i = 0; i < input.size(); i++) {
+                    if (input.get(i) != null) {
+                        System.out.println((i+1) + ". " + input.get(i).toString());
+                    }
+                }
+                System.out.println(line);
+            }
             else {
-                System.out.println(command);
+                input.add(command);
+                System.out.println("added: " + command);
             }
         }
     }
