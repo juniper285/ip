@@ -29,6 +29,9 @@ public class Gigi {
                         "See ya! Don't forget - this mighty fiery feline doesn't wait forever. Meow!");
                 System.out.println(line);
             }
+            else {
+                System.out.println(command);
+            }
         }
     }
 }
