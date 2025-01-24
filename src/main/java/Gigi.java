@@ -64,8 +64,15 @@ public class Gigi {
             else {
                 try {
                     if (command.startsWith("todo") ) {
+                        if (command.length() < 5) {
+                            throw new DukeException("Where is your todo?");
+                        }
+                        String description = command.substring(5).trim();
+                        if (description.isEmpty() || description.equals(" ")) {
+                            throw new DukeException("Where is your todo?");
+                        }
+                        ToDos itemT = new ToDos(description);
                         System.out.println("Aye! I’ve pawed this task into the list — don’t make me scratch it out later. Meow!");
-                        ToDos itemT = new ToDos(command.substring(5).trim());
                         System.out.println(itemT.toString());
                         input[++inputCount] = itemT;
                         if (inputCount == 1) {
@@ -75,10 +82,24 @@ public class Gigi {
                         }
                     }
                     else if (command.startsWith("deadline")) {
-                        System.out.println("Aye! I’ve pawed this task into the list — don’t make me scratch it out later. Meow!");
+                        if (command.length() < 9) {
+                            throw new DukeException("Where is your deadline?");
+                        }
+                        if (!command.contains(" /by ")) {
+                            throw new DukeException("MEOW!!! The deadline must include a '/by' clause.");
+                        }
                         String command2 = command.substring(9).trim();
+                        if (command2.isEmpty() || command2.equals(" ")) {
+                            throw new DukeException("Where is your deadline?");
+                        }
                         String[] splitCommand = command.split(" /by ");
-                        Deadlines itemD = new Deadlines(splitCommand[0], splitCommand[1]);
+                        if (splitCommand[0].trim().isEmpty() || splitCommand[1].trim().isEmpty()) {
+                            throw new DukeException("MEOW!!! The description and date of a deadline cannot be empty.");
+                        }
+                        String description = splitCommand[0];
+                        String date = splitCommand[1];
+                        System.out.println("Aye! I’ve pawed this task into the list — don’t make me scratch it out later. Meow!");
+                        Deadlines itemD = new Deadlines(description, date);
                         System.out.println(itemD.toString());
                         input[++inputCount] = itemD;
                         if (inputCount == 1) {
@@ -86,11 +107,24 @@ public class Gigi {
                         } else {
                             System.out.println("Remember now, you have " + inputCount + " tasks to do.");
                         }
+                        System.out.println("____________________________________________________________ \n");
                     }
                     else if (command.startsWith("event")) {
-                        System.out.println("Aye! I’ve pawed this task into the list — don’t make me scratch it out later. Meow!");
+                        if (command.length() < 6) {
+                            throw new DukeException("Where is your event?");
+                        }
+                        if (!command.contains(" /from ") || !command.contains(" /to ")) {
+                            throw new DukeException("MEOW!!! The event must include '/from' and '/to' clauses.");
+                        }
                         String command3 = command.substring(6).trim();
+                        if (command3.isEmpty() || command3.equals(" ")) {
+                            throw new DukeException("Where is your deadline?");
+                        }
                         String[] splitCom = command.split(" /from | /to ");
+                        if (splitCom[0].trim().isEmpty() || splitCom[1].trim().isEmpty() || splitCom[2].trim().isEmpty()) {
+                            throw new DukeException("MEOW!!! The description, start time, and end time of an event cannot be empty.");
+                        }
+                        System.out.println("Aye! I’ve pawed this task into the list — don’t make me scratch it out later. Meow!");
                         String taskName = splitCom[0];
                         String from = splitCom[1];
                         String to = splitCom[2];
@@ -102,13 +136,14 @@ public class Gigi {
                         } else {
                             System.out.println("Remember now, you have " + inputCount + " tasks to do.");
                         }
+                        System.out.println("____________________________________________________________ \n");
                     }
                     else {
-                        throw new Exception("No Task type.");
+                        throw new Exception("I’ve got no clue what that means — care to explain?");
                     }
                 } catch (Exception e) {
                     System.out.println("____________________________________________________________ \n");
-                    System.out.println("Error: " + e.getMessage());
+                    System.out.println(e.getMessage());
                     System.out.println("____________________________________________________________ \n");
                 }
             }
