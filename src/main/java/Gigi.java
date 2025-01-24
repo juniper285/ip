@@ -106,6 +106,7 @@ public class Gigi {
                                 System.out.println("Remember now, you have " + input.size() + " tasks to do.");
                                 System.out.println(line);
                             }
+
                         }
                         else if (command.startsWith("deadline")) {
                             if (command.length() < 9) {
