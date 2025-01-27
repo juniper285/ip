@@ -1,22 +1,26 @@
-public class Event extends Task{
+public class Events extends Task{
     protected String taskName;
     protected boolean complete;
     protected String startTime;
     protected String endTime;
-    protected boolean isComplete;
 
-    public Event(String taskName, String startTime, String endTime) {
+
+    public Events(String taskName, String startTime, String endTime) {
         super(taskName);
         this.startTime = startTime;
-        this.endTime = endTime;
+
         this.isComplete = false;
     }
 
-    public Event(String taskName, String startTime, String endTime, boolean isComplete) {
+    public Events(String taskName, String startTime, String endTime, boolean isComplete) {
         super(taskName);
-        this.startTime = startTime;
+
         this.endTime = endTime;
         this.isComplete = isComplete;
+    }
+
+    public Events(String taskName) {
+        super(taskName);
     }
 
     public String getStatusIcon() {
@@ -31,8 +35,13 @@ public class Event extends Task{
         super.markUndone(index);
     }
 
+    public String convertToText() {
+        return "E | " + super.convertToText() + " | " + this.startTime + " | " + this.endTime;
+    }
+
     public String toString() {
-        return super.toString() + " (from: " + startTime + " to: " + endTime + ")";
+        return super.toString() + " (from: " + this.startTime + " to: " + this.endTime + ")";
     }
 }
+
 
