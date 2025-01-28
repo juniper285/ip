@@ -47,7 +47,6 @@ public class Gigi {
                                         "Meow!");
                         break;
                     }
-
                     case "list" -> {
                         if (input.isEmpty()) {
                             throw new DukeException("MEOW!!! You have nothing on your list.");
