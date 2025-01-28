@@ -170,7 +170,6 @@ public class Gigi {
             System.out.println("MEOW! Unable to save tasks to file: \n" +
                     e.getMessage());
         }
-
     }
 
     private static ArrayList<Task> loadTasksFromFile() {
