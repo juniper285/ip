@@ -1,9 +1,15 @@
 public class ToDos extends Task{
     protected String taskName;
-    protected boolean complete;
+    protected boolean isComplete;
 
     public ToDos(String taskName) {
         super(taskName);
+        this.isComplete = false;
+    }
+
+    public ToDos(String taskName, boolean isComplete) {
+        super(taskName);
+        this.isComplete = isComplete;
     }
 
     public String getStatusIcon() {
