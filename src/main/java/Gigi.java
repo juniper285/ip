@@ -160,7 +160,6 @@ public class Gigi {
                             Event itemE = new Event(taskName, from, to);
                             System.out.println(itemE.toString());
                             input.add(itemE);
-
                             if (input.size() == 1) {
                                 System.out.println("Remember now, you have " + input.size() + " task to do.");
                                 System.out.println(line);
