@@ -49,7 +49,7 @@ public class Gigi {
                     }
 
                     case "list" -> {
-                        if (input.size() == 0) {
+                        if (input.isEmpty()) {
                             throw new DukeException("MEOW!!! You have nothing on your list.");
                         }
                         System.out.println("Don't forget what you have to do:");
