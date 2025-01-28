@@ -1,5 +1,3 @@
-
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -156,8 +154,6 @@ public class Gigi {
 
     private static void saveTasksToFile(ArrayList<Task> input) {
         try {
-            File directory = new File("./data");
-            File file = new File(FILE_PATH);
             PrintWriter pw = new PrintWriter(FILE_PATH);
             for (Task task : input) {
                 pw.println(task.convertToText());
