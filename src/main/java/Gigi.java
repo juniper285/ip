@@ -58,7 +58,6 @@ public class Gigi {
                             }
                         }
                     }
-
                     case "mark" -> {
                         String[] splitDescription = details.split("\\s+");
                         int index = Integer.parseInt(splitDescription[0]) - 1;
