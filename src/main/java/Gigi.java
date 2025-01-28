@@ -56,7 +56,6 @@ public class Gigi {
                     System.out.println(input.get(index).toString());
                     System.out.println(line);
                 }
-
                 else if (command.startsWith("unmark")) {
                     String[] splitCommand = command.split("\\s+");
                     int index = Integer.parseInt(splitCommand[1]) - 1;
