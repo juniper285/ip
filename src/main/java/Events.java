@@ -8,13 +8,12 @@ public class Events extends Task{
     public Events(String taskName, String startTime, String endTime) {
         super(taskName);
         this.startTime = startTime;
-
-        this.isComplete = false;
+        this.endTime = endTime;
+        this.complete = false;
     }
 
     public Events(String taskName, String startTime, String endTime, boolean isComplete) {
         super(taskName);
-
         this.endTime = endTime;
         this.isComplete = isComplete;
     }

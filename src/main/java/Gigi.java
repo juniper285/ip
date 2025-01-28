@@ -2,6 +2,7 @@
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class Gigi {
                 "  じしf_, )ノ \n";
 
         System.out.println(line);
-        System.out.println(logo +
+        System.out.println(
                 "MEOW! \n"
                         + "I'm Gigi, the mighty demon keeping this place running. \n"
                         + "What do you want? \n");
@@ -29,6 +30,7 @@ public class Gigi {
 
         while (sc.hasNextLine()) {
             String command = sc.nextLine();
+            System.out.println(line);
             try {
                 command = command.toLowerCase();
                 String[] splitCommand = command.split("\\s+", 2);
@@ -36,28 +38,26 @@ public class Gigi {
                 String details = splitCommand.length > 1 ? splitCommand[1] : "";
 
                 switch(action) {
+
                     case "bye" -> {
-                        System.out.println(line);
+                        saveTasksToFile(input);
                         System.out.println(
-                                "See ya! \n " +
+                                "See ya! \n" +
                                         "Don't forget - this mighty fiery feline doesn't wait forever. \n" +
                                         "Meow!");
-                        System.out.println(line);
-                        return;
+                        break;
                     }
 
                     case "list" -> {
                         if (input.size() == 0) {
                             throw new DukeException("MEOW!!! You have nothing on your list.");
                         }
-                        System.out.println(line);
                         System.out.println("Don't forget what you have to do:");
                         for (int i = 0; i < input.size(); i++) {
                             if (input.get(i) != null) {
                                 System.out.println((i + 1) + ". " + input.get(i).toString());
                             }
                         }
-                        System.out.println(line);
                     }
 
                     case "mark" -> {
@@ -66,11 +66,9 @@ public class Gigi {
                         if (index + 1 > input.size()) {
                             throw new DukeException("MEOW! You don't have that many tasks");
                         }
-                        System.out.println(line);
                         System.out.println("Nice! I've marked this task as done:\n");
                         input.get(index).markDone(index);
                         System.out.println(input.get(index).toString());
-                        System.out.println(line);
                     }
 
                     case "unmark" -> {
@@ -79,11 +77,9 @@ public class Gigi {
                         if (index + 1 > input.size()) {
                             throw new DukeException("MEOW! You don't have that many tasks");
                         }
-                        System.out.println(line);
                         System.out.println("Meow, I've marked this task as not done yet:\n");
                         input.get(index).markUndone(index);
                         System.out.println(input.get(index).toString());
-                        System.out.println(line);
                     }
 
                     case "delete" -> {
@@ -92,12 +88,10 @@ public class Gigi {
                         if (index + 1 > input.size()) {
                             throw new DukeException("MEOW! You don't have that many tasks");
                         }
-                        System.out.println(line);
                         System.out.println("MEOW. This task never existed: \n");
                         System.out.println(input.get(index).toString());
                         input.remove(index);
                         System.out.println("You have " + input.size() + " tasks to do.");
-                        System.out.println(line);
                     }
 
                     case "todo" -> {
@@ -105,13 +99,10 @@ public class Gigi {
                             throw new DukeException("Where is your todo?");
                         }
                         ToDos itemT = new ToDos(details);
-                        System.out.println(line);
-                        System.out.println("Aye! \n " +
-                                "I've pawed this task into the list - don't make me scratch it out later. \n" +
-                                "Meow!");
+                        System.out.println("Meow! I've pawed this task into the list - don't make me scratch it out later. \n");
                         System.out.println(itemT.toString());
                         input.add(itemT);
-                        System.out.printf("Remember now, you have %d task(s) to do.%n", input.size());
+                        System.out.printf("\nRemember now, you have %d task(s) to do.%n", input.size());
                     }
 
                     case "deadline" -> {
@@ -127,8 +118,7 @@ public class Gigi {
                         }
                         String deadlineTask = deadlineDetails[0];
                         String date = deadlineDetails[1];
-                        System.out.println(line);
-                        System.out.println("Meow! I've pawed this task into the list - don't make me scratch it out later. Meow!");
+                        System.out.println("Meow! I've pawed this task into the list - don't make me scratch it out later.");
                         Deadlines itemD = new Deadlines(deadlineTask, date);
                         System.out.println(itemD.toString());
                         input.add(itemD);
@@ -142,36 +132,34 @@ public class Gigi {
                             throw new DukeException("MEOW!!! The event must include '/from' and '/to' clauses.");
                         }
                         String[] eventDetails = details.split(" /from | /to ");
-                        if (eventDetails.length < 3 || Arrays.stream(eventDetails).anyMatch(String::isBlank)) {
+                        if (eventDetails.length < 3 | Arrays.stream(eventDetails).anyMatch(String::isBlank)) {
                             throw new DukeException("MEOW!!! The description, start time, and end time of an event cannot be empty.");
                         }
-                        System.out.println("Meow! I've pawed this task into the list - don't make me scratch it out later. Meow!");
+                        System.out.println("Meow! I've pawed this task into the list - don't make me scratch it out later.");
                         String taskName = eventDetails[0];
                         String from = eventDetails[1];
                         String to = eventDetails[2];
                         Events itemE = new Events(taskName, from, to);
                         System.out.println(itemE.toString());
                         input.add(itemE);
-                        System.out.println(itemE);
-                        input.add(itemE);
                         System.out.printf("Remember now, you have %d task(s) to do.%n", input.size());
-                        System.out.println(line);
                     }
                     default -> {
                         throw new DukeException("I've got no clue what that means - care to explain?");
                     }
                 }
             } catch (DukeException e) {
-                System.out.println(line);
                 System.out.println(e.getMessage());
-                System.out.println(line);
 
             }
+            System.out.println(line);
         }
     }
 
     private static void saveTasksToFile(ArrayList<Task> input) {
         try {
+            File directory = new File("./data");
+            File file = new File(FILE_PATH);
             PrintWriter pw = new PrintWriter(FILE_PATH);
             for (Task task : input) {
                 pw.println(task.convertToText());
@@ -179,10 +167,9 @@ public class Gigi {
             pw.close();
 
         } catch (FileNotFoundException e) {
-            System.out.println("MEOW! Unable to save tasks to file: /n" +
+            System.out.println("MEOW! Unable to save tasks to file: \n" +
                     e.getMessage());
         }
-
 
     }
 
@@ -208,7 +195,7 @@ public class Gigi {
                 }
             }
         } catch (FileNotFoundException e) {
-            System.out.println("MEOW! Unable to load tasks from file: /n" +
+            System.out.println("MEOW! Unable to load tasks from file: \n" +
                     e.getMessage());
         }
         System.out.println("MEOW! Tasks loaded from file.");
