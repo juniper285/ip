@@ -1,11 +1,18 @@
 public class Deadlines extends Task{
     protected String taskName;
-    protected boolean complete;
+    protected boolean isComplete;
     protected String deadline;
 
     public Deadlines(String taskName, String deadline) {
         super(taskName);
         this.deadline = deadline;
+        this.isComplete = false;
+    }
+
+    public Deadlines(String taskName, String deadline, boolean isComplete) {
+        super(taskName);
+        this.deadline = deadline;
+        this.isComplete = isComplete;
     }
 
     public String getStatusIcon() {
@@ -18,6 +25,10 @@ public class Deadlines extends Task{
 
     void markUndone(int index) {
         super.markUndone(index);
+    }
+
+    public String convertToText() {
+        return "D | " + super.convertToText() + " | " + this.deadline;
     }
 
     public String toString() {

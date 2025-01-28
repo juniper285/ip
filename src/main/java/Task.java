@@ -1,22 +1,26 @@
 public class Task {
     protected String taskName;
-    protected boolean complete;
+    protected boolean isComplete;
 
     public Task(String taskName) {
         this.taskName = taskName;
-        this.complete = false;
+        this.isComplete = false;
     }
 
     public String getStatusIcon() {
-        return (complete ? "[X]" : "[ ]");
+        return (isComplete ? "[X]" : "[ ]");
     }
 
     void markDone(int index) {
-        this.complete = true;
+        this.isComplete = true;
     }
 
     void markUndone(int index) {
-        this.complete = false;
+        this.isComplete = false;
+    }
+
+    public String convertToText() {
+        return (isComplete ? "1" : "0") + " | " + this.taskName;
     }
 
     public String toString() {
