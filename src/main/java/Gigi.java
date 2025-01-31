@@ -2,12 +2,23 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Gigi {
     private static final String FILE_PATH = "./data/Gigi.txt";
+    static List<DateTimeFormatter> formatters = List.of(
+            DateTimeFormatter.ofPattern("MM/dd/yyyy"),   // Example: 12/31/2024
+            DateTimeFormatter.ofPattern("dd/MM/yyyy"),   // Example: 31/12/2024
+            DateTimeFormatter.ofPattern("yyyy-MM-dd"),   // Example: 2024-12-31
+            DateTimeFormatter.ofPattern("MMM d yyyy"),   // Example: Dec 31 2024
+            DateTimeFormatter.ofPattern("MMMM d yyyy")   // Example: December 31 2024
+    );
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -114,8 +125,19 @@ public class Gigi {
                         }
                         String deadlineTask = deadlineDetails[0];
                         String date = deadlineDetails[1];
+                        LocalDate deadlineDate = null;
+                        for (DateTimeFormatter formatter : formatters) {
+                            try {
+                                deadlineDate = LocalDate.parse(date, formatter);
+                                break; // Stop if successful
+                            } catch (DateTimeParseException ignored) {
+                            }
+                        }
+                        if (deadlineDate == null) {
+                            throw new DukeException("MEOW! Must be in a recognized date format.");
+                        }
                         System.out.println("Meow! I've pawed this task into the list - don't make me scratch it out later.");
-                        Deadlines itemD = new Deadlines(deadlineTask, date);
+                        Deadlines itemD = new Deadlines(deadlineTask, deadlineDate);
                         System.out.println(itemD.toString());
                         input.add(itemD);
                         System.out.printf("Remember now, you have %d task(s) to do.%n", input.size());
@@ -124,7 +146,7 @@ public class Gigi {
                         if (details.isBlank()) {
                             throw new DukeException("Where is your event?");
                         }
-                        if (!details.contains(" /from ") || !details.contains(" /to ")) {
+                        if (!details.contains(" /from " ) || !details.contains(" /to ")) {
                             throw new DukeException("MEOW!!! The event must include '/from' and '/to' clauses.");
                         }
                         String[] eventDetails = details.split(" /from | /to ");
@@ -132,10 +154,24 @@ public class Gigi {
                             throw new DukeException("MEOW!!! The description, start time, and end time of an event cannot be empty.");
                         }
                         System.out.println("Meow! I've pawed this task into the list - don't make me scratch it out later.");
-                        String taskName = eventDetails[0];
-                        String from = eventDetails[1];
-                        String to = eventDetails[2];
-                        Events itemE = new Events(taskName, from, to);
+                        String taskName = eventDetails[0].trim();
+                        String from = eventDetails[1].trim();
+                        String to = eventDetails[2].trim();
+                        LocalDate fromDate = null;
+                        LocalDate toDate = null;
+                        for (DateTimeFormatter formatter : formatters) {
+                            try {
+                                fromDate = LocalDate.parse(from, formatter);
+                                toDate = LocalDate.parse(to, formatter);
+                                break;
+                            } catch (DateTimeParseException ignored) {
+                            }
+                        }
+                        if (fromDate == null || toDate == null) {
+                            throw new DukeException("MEOW! Must be in a recognized date format.");
+                        }
+
+                        Events itemE = new Events(taskName, fromDate, toDate);
                         System.out.println(itemE.toString());
                         input.add(itemE);
                         System.out.printf("Remember now, you have %d task(s) to do.%n", input.size());
@@ -183,8 +219,8 @@ public class Gigi {
                 boolean isDone = Boolean.parseBoolean(info[1]);
                 switch (taskType) {
                     case "T" -> input.add(new ToDos(info[2], isDone));
-                    case "D" -> input.add(new Deadlines(info[2], info[3], isDone));
-                    case "E" -> input.add(new Events(info[2], info[3], info[4], isDone));
+                    case "D" -> input.add(new Deadlines(info[2], LocalDate.parse(info[3]), isDone));
+                    case "E" -> input.add(new Events(info[2], LocalDate.parse(info[3]), LocalDate.parse(info[4]), isDone));
                 }
             }
         } catch (FileNotFoundException e) {
