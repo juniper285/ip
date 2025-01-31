@@ -18,7 +18,6 @@ public class Gigi {
                 "（ﾟ､ ｡ 7\n" +
                 "⠀ |、ﾞ~ヽ\n" +
                 "  じしf_, )ノ \n";
-
         System.out.println(line);
         System.out.println(
                 "MEOW! \n"
