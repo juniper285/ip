@@ -12,12 +12,12 @@ import java.util.Scanner;
 
 public class Gigi {
     private static final String FILE_PATH = "./data/Gigi.txt";
-    static List<DateTimeFormatter> formatters = List.of(
+    private static final List<DateTimeFormatter> formatters = List.of(
             DateTimeFormatter.ofPattern("MM/dd/yyyy"),   // Example: 12/31/2024
             DateTimeFormatter.ofPattern("dd/MM/yyyy"),   // Example: 31/12/2024
             DateTimeFormatter.ofPattern("yyyy-MM-dd"),   // Example: 2024-12-31
-            DateTimeFormatter.ofPattern("MMM d yyyy"),   // Example: Dec 31 2024
-            DateTimeFormatter.ofPattern("MMMM d yyyy")   // Example: December 31 2024
+            DateTimeFormatter.ofPattern("d MMM yyyy"),   // Example: Dec 31 2024
+            DateTimeFormatter.ofPattern("d MMMM yyyy")   // Example: December 31 2024
     );
 
     public static void main(String[] args) {
@@ -47,15 +47,15 @@ public class Gigi {
                 String details = splitCommand.length > 1 ? splitCommand[1] : "";
 
                 switch(action) {
-
                     case "bye" -> {
                         saveTasksToFile(input);
                         System.out.println(
                                 "See ya! \n" +
                                         "Don't forget - this mighty fiery feline doesn't wait forever. \n" +
                                         "Meow!");
-                        break;
+                        return;
                     }
+
                     case "list" -> {
                         if (input.isEmpty()) {
                             throw new DukeException("MEOW!!! You have nothing on your list.");
@@ -149,24 +149,26 @@ public class Gigi {
                         if (!details.contains(" /from " ) || !details.contains(" /to ")) {
                             throw new DukeException("MEOW!!! The event must include '/from' and '/to' clauses.");
                         }
-                        String[] eventDetails = details.split(" /from | /to ");
+                        String[] eventDetails = details.split("(?<=/from )|(?<=/to )");
                         if (eventDetails.length < 3 | Arrays.stream(eventDetails).anyMatch(String::isBlank)) {
                             throw new DukeException("MEOW!!! The description, start time, and end time of an event cannot be empty.");
                         }
                         System.out.println("Meow! I've pawed this task into the list - don't make me scratch it out later.");
-                        String taskName = eventDetails[0].trim();
-                        String from = eventDetails[1].trim();
-                        String to = eventDetails[2].trim();
+                        String taskName = eventDetails[0];
+                        String from = eventDetails[1].trim().replace("/from ", "");
+                        String to = eventDetails[2].trim().replace("/to ", "");
                         LocalDate fromDate = null;
                         LocalDate toDate = null;
                         for (DateTimeFormatter formatter : formatters) {
                             try {
                                 fromDate = LocalDate.parse(from, formatter);
                                 toDate = LocalDate.parse(to, formatter);
-                                break;
+                                break; // Stop if successful
                             } catch (DateTimeParseException ignored) {
                             }
                         }
+                        System.out.println("from " + fromDate);
+                        System.out.println("to " +toDate);
                         if (fromDate == null || toDate == null) {
                             throw new DukeException("MEOW! Must be in a recognized date format.");
                         }
