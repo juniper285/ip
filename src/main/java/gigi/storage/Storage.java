@@ -33,6 +33,7 @@ public class Storage {
             default -> throw new GigiException("Unknown task type: " + taskType);
         };
     }
+
     public ArrayList<Task> loadTasksFromFile() throws GigiException {
         ArrayList<Task> tasks = new ArrayList<>();
         File file = new File(filePath);
