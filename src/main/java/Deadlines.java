@@ -1,18 +1,19 @@
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Deadlines extends Task{
     protected String taskName;
     protected boolean isComplete;
-    protected LocalDate deadline;
+    protected LocalDateTime deadline;
 
-    public Deadlines(String taskName, LocalDate deadline) {
+    public Deadlines(String taskName, LocalDateTime deadline) {
         super(taskName);
         this.deadline = deadline;
         this.isComplete = false;
     }
 
-    public Deadlines(String taskName, LocalDate deadline, boolean isComplete) {
+    public Deadlines(String taskName, LocalDateTime deadline, boolean isComplete) {
         super(taskName);
         this.deadline = deadline;
         this.isComplete = isComplete;

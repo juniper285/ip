@@ -1,6 +1,6 @@
-public class DukeException extends Exception{
+public class GigiException extends Exception{
 
-    public DukeException(String message) {
+    public GigiException(String message) {
         super(message);
     }
 }

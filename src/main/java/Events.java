@@ -5,17 +5,17 @@ import java.time.format.DateTimeFormatter;
 public class Events extends Task{
     protected String taskName;
     protected boolean complete;
-    protected LocalDate startTime;
-    protected LocalDate endTime;
+    protected LocalDateTime startTime;
+    protected LocalDateTime endTime;
 
-    public Events(String taskName, LocalDate startTime, LocalDate endTime) {
+    public Events(String taskName, LocalDateTime startTime, LocalDateTime endTime) {
         super(taskName);
         this.startTime = startTime;
         this.endTime = endTime;
         this.complete = false;
     }
 
-    public Events(String taskName, LocalDate startTime, LocalDate endTime, boolean isComplete) {
+    public Events(String taskName, LocalDateTime startTime, LocalDateTime endTime, boolean isComplete) {
         super(taskName);
         this.startTime = startTime;
         this.endTime = endTime;
