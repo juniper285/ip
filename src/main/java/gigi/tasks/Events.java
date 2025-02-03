@@ -1,4 +1,4 @@
-package gigi.tasks;
+package gigi.task;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

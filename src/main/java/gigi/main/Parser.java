@@ -1,5 +1,3 @@
-package gigi.main;
-
 import gigi.commands.*;
 import gigi.exceptions.GigiException;
 
@@ -35,6 +33,9 @@ public class Parser {
         String[] parts = input.split("\\s+", 2);
         String commandWord = parts[0];
         String details = parts.length > 1 ? parts[1] : "";
+        if (details.isBlank()) {
+            throw new GigiException("Where is your task?");
+        }
 
         return switch (commandWord) {
             case ToDoCommand.COMMAND_WORD -> startToDo(details);
@@ -67,9 +68,9 @@ public class Parser {
     }
 
     private static Command startEvent(String details) throws GigiException {
-        String[] eventDetails = details.split(" /from | /to ", 3);
+        String[] eventDetails = details.split(" /from | /by ", 3);
         if (eventDetails.length < 3) {
-            throw new GigiException("MEOW! Events must have a description, '/from' date, and '/to' deadline.");
+            throw new GigiException("MEOW! gigi.task.Events must have a description, '/from' date, and '/by' deadline.");
         }
         return new EventCommand(eventDetails[0], parseDateTime(eventDetails[1]), parseDateTime(eventDetails[2]));
     }

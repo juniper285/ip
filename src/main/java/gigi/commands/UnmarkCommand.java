@@ -1,10 +1,4 @@
-package gigi.commands;
-
-import gigi.exceptions.GigiException;
-import gigi.storage.Storage;
-import gigi.tasks.Task;
-import gigi.tasks.Tasklist;
-import gigi.ui.Ui;
+package gigi.command;
 
 public class UnmarkCommand extends Command {
     public static final String COMMAND_WORD = "unmark";

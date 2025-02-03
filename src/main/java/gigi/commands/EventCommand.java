@@ -1,10 +1,4 @@
-package gigi.commands;
-
-import gigi.exceptions.GigiException;
-import gigi.storage.Storage;
-import gigi.tasks.Events;
-import gigi.tasks.Tasklist;
-import gigi.ui.Ui;
+package gigi.command;
 
 import java.time.LocalDateTime;
 
@@ -29,6 +23,6 @@ public class EventCommand extends Command {
 
         ui.showAddMessage();
         ui.showMessage(String.valueOf(event));
-        ui.showNumListMessage(tasks);
+        ui.showMessage(String.format("Now you have %d task(s) in the list.", tasks.getSize()));
     }
 }

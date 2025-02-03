@@ -1,8 +1,4 @@
-package gigi.tasks;
-
-import gigi.exceptions.GigiException;
-import gigi.storage.Storage;
-import gigi.ui.Ui;
+package gigi.task;
 
 import java.util.ArrayList;
 

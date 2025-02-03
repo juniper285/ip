@@ -1,5 +1,3 @@
-package gigi.main;
-
 import gigi.commands.Command;
 import gigi.exceptions.GigiException;
 import gigi.storage.Storage;
@@ -7,11 +5,11 @@ import gigi.tasks.Tasklist;
 import gigi.ui.Ui;
 
 public class Gigi {
-    private static final String FILE_PATH = "./data/gigi.main.Gigi.txt";
+    private static final String FILE_PATH = "./data/Gigi.txt";
 
-    private final Storage storage;
+    private Storage storage;
     private Tasklist tasks;
-    private final Ui ui;
+    private Ui ui;
 
     public Gigi(String filePath) {
         ui = new Ui();

@@ -1,4 +1,4 @@
-package gigi.tasks;
+package gigi.task;
 
 public class ToDos extends Task{
     protected String taskName;

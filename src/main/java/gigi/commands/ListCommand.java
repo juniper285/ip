@@ -1,9 +1,4 @@
-package gigi.commands;
-
-import gigi.exceptions.GigiException;
-import gigi.storage.Storage;
-import gigi.tasks.Tasklist;
-import gigi.ui.Ui;
+package gigi.command;
 
 public class ListCommand extends Command {
     public static final String COMMAND_WORD = "list";
