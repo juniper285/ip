@@ -9,7 +9,6 @@ import gigi.ui.Ui;
 
 public class Gigi {
     private static final String FILE_PATH = "./data/Gigi.txt";
-
     private final Storage storage;
     private Tasklist tasks;
     private final Ui ui;
