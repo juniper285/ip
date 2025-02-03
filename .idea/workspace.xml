@@ -30,7 +30,7 @@
         <entry key="$PROJECT_DIR$/ip" value="master" />
       </map>
     </option>
-    <option name="RECENT_COMMON_BRANCH" value="main" />
+    <option name="RECENT_COMMON_BRANCH" value="branch-A-Packages" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/ip" />
     <option name="RESET_MODE" value="MIXED" />
     <option name="ROOT_SYNC" value="SYNC" />
@@ -69,33 +69,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Gigi.executor": "Run",
-    "Batch.runtest.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "branch-A-Packages",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "inlay.hints",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Gigi.executor&quot;: &quot;Run&quot;,
+    &quot;Batch.runtest.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "GitStage.ChangesTree.GroupingKeys": [
-      "directory",
-      "module",
-      "repository"
+  &quot;keyToStringList&quot;: {
+    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;,
+      &quot;repository&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.Gigi">
     <configuration name="Gigi" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-17" />
@@ -166,7 +166,8 @@
       <workItem from="1738585617365" duration="156000" />
       <workItem from="1738585787025" duration="106000" />
       <workItem from="1738587827527" duration="163000" />
-      <workItem from="1738588018140" duration="3742000" />
+      <workItem from="1738588018140" duration="4520000" />
+      <workItem from="1738592577489" duration="972000" />
     </task>
     <task id="LOCAL-00001" summary="level0">
       <option name="closed" value="true" />
@@ -536,7 +537,23 @@
       <option name="project" value="LOCAL" />
       <updated>1738584972936</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Add packages">
+      <option name="closed" value="true" />
+      <created>1738591994660</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1738591994660</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Add packages">
+      <option name="closed" value="true" />
+      <created>1738592066417</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1738592066417</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -578,7 +595,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="branch-A-Packages" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
