@@ -31,7 +31,7 @@
       </map>
     </option>
     <option name="RECENT_COMMON_BRANCH" value="main" />
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/ip" />
     <option name="RESET_MODE" value="MIXED" />
     <option name="ROOT_SYNC" value="SYNC" />
   </component>
@@ -43,7 +43,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/juniper285/ip.git&quot;,
+    &quot;url&quot;: &quot;https://github.com/juniper285/ip&quot;,
     &quot;accountId&quot;: &quot;910bdda2-6b90-4660-8f1b-897d122628cf&quot;
   },
   &quot;recentNewPullRequestHead&quot;: {
@@ -69,35 +69,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Gigi.executor&quot;: &quot;Run&quot;,
-    &quot;Batch.runtest.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Gigi.executor": "Run",
+    "Batch.runtest.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "branch-A-Packages",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "inlay.hints",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
-      &quot;directory&quot;,
-      &quot;module&quot;,
-      &quot;repository&quot;
+  "keyToStringList": {
+    "GitStage.ChangesTree.GroupingKeys": [
+      "directory",
+      "module",
+      "repository"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.Gigi">
     <configuration name="Gigi" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="Gigi" />
+      <option name="MAIN_CLASS_NAME" value="gigi.main.Gigi" />
+      <module name="iproj" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -115,8 +119,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Batch.runtest" />
         <item itemvalue="Application.Gigi" />
+        <item itemvalue="Batch.runtest" />
         <item itemvalue="Batch.runtest" />
         <item itemvalue="Application.Gigi" />
         <item itemvalue="Application.Gigi" />
@@ -161,6 +165,8 @@
       <workItem from="1738585460733" duration="145000" />
       <workItem from="1738585617365" duration="156000" />
       <workItem from="1738585787025" duration="106000" />
+      <workItem from="1738587827527" duration="163000" />
+      <workItem from="1738588018140" duration="3742000" />
     </task>
     <task id="LOCAL-00001" summary="level0">
       <option name="closed" value="true" />
@@ -572,7 +578,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="branch-A-MoreOOP" />
+                        <option value="branch-A-Packages" />
                       </list>
                     </value>
                   </entry>
@@ -585,7 +591,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="level0" />
     <MESSAGE value="level4" />
     <MESSAGE value="level-5" />
     <MESSAGE value="level-6" />
@@ -610,6 +615,7 @@
     <MESSAGE value="More LocalDate formats" />
     <MESSAGE value="Save" />
     <MESSAGE value="Add more OOP" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add more OOP" />
+    <MESSAGE value="Add packages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add packages" />
   </component>
 </project>
