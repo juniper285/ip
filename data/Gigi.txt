@@ -1,2 +1,2 @@
-false | hw
-false | hw
+T | true | 1
+T | false | 2
