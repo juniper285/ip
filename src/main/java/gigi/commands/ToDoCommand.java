@@ -26,6 +26,6 @@ public class ToDoCommand extends Command {
 
         ui.showAddMessage();
         ui.showMessage(String.valueOf(todo));
-        ui.showMessage(String.format("Now you have %d task(s) in the list.", tasks.getSize()));
+        ui.showTaskNumber(tasks);
     }
 }

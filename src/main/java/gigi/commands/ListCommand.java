@@ -13,5 +13,6 @@ public class ListCommand extends Command {
     @Override
     public void execute(Tasklist tasks, Ui ui, Storage storage) throws GigiException {
         tasks.getList(ui);
+        ui.showTaskNumber(tasks);
     }
 }

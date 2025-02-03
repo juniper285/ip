@@ -26,7 +26,7 @@ public class MarkCommand extends Command {
 
         ui.showDoneMessage();
         ui.showMessage(markedTask.toString());
-        ui.showMessage(String.format("Now you have %d task(s) in the list.", tasks.getSize()));
+        ui.showTaskNumber(tasks);
     }
 }
 

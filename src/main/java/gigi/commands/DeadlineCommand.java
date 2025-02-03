@@ -27,6 +27,6 @@ public class DeadlineCommand extends Command {
 
         ui.showAddMessage();
         ui.showMessage(String.valueOf(deadline));
-        ui.showMessage(String.format("Now you have %d task(s) in the list.", tasks.getSize()));
+        ui.showTaskNumber(tasks);
     }
 }

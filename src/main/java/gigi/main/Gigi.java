@@ -10,9 +10,9 @@ import gigi.ui.Ui;
 public class Gigi {
     private static final String FILE_PATH = "./data/Gigi.txt";
 
-    private Storage storage;
+    private final Storage storage;
     private Tasklist tasks;
-    private Ui ui;
+    private final Ui ui;
 
     public Gigi(String filePath) {
         ui = new Ui();
@@ -22,7 +22,6 @@ public class Gigi {
             tasks.getTasks(storage);
         } catch (GigiException e) {
             ui.showLoadingError();
-            System.out.println("DEBUG: Error loading tasks - " + e.getMessage());
             tasks = new Tasklist();
         }
     }

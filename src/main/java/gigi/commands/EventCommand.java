@@ -29,6 +29,6 @@ public class EventCommand extends Command {
 
         ui.showAddMessage();
         ui.showMessage(String.valueOf(event));
-        ui.showMessage(String.format("Now you have %d task(s) in the list.", tasks.getSize()));
+        ui.showTaskNumber(tasks);
     }
 }

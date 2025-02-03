@@ -26,7 +26,7 @@ public class UnmarkCommand extends Command {
 
         ui.showUndoneMessage();
         ui.showMessage(unmarkedTask.toString());
-        ui.showMessage(String.format("Now you have %d task(s) in the list.", tasks.getSize()));
+        ui.showTaskNumber(tasks);
     }
 }
 
