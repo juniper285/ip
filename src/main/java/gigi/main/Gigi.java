@@ -1,3 +1,9 @@
+import gigi.commands.Command;
+import gigi.exceptions.GigiException;
+import gigi.storage.Storage;
+import gigi.tasks.Tasklist;
+import gigi.ui.Ui;
+
 public class Gigi {
     private static final String FILE_PATH = "./data/Gigi.txt";
 
@@ -9,9 +15,11 @@ public class Gigi {
         ui = new Ui();
         storage = new Storage(filePath);
         try {
-            tasks = new Tasklist(storage.loadTasksFromFile());
+            tasks = new Tasklist();
+            tasks.getTasks(storage);
         } catch (GigiException e) {
             ui.showLoadingError();
+            System.out.println("DEBUG: Error loading tasks - " + e.getMessage());
             tasks = new Tasklist();
         }
     }

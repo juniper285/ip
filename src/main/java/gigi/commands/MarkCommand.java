@@ -1,8 +1,10 @@
-public class DeleteCommand extends Command {
-    public static final String COMMAND_WORD = "delete";
+package gigi.command;
+
+public class MarkCommand extends Command {
+    public static final String COMMAND_WORD = "mark";
     public final int taskIndex;
 
-    public DeleteCommand(int i) {
+    public MarkCommand(int i) {
         this.taskIndex = i - 1;
     }
 
@@ -12,12 +14,13 @@ public class DeleteCommand extends Command {
             throw new GigiException("MEOW! You don't have that many tasks.");
         }
 
-        Task removedTask = tasks.getTask(taskIndex);
-        tasks.deleteTask(taskIndex);
+        Task markedTask = tasks.getTask(taskIndex);
+        tasks.markTaskAsDone(taskIndex);
         tasks.saveTasks(storage);
 
-        ui.showDelMessage();
-        ui.showMessage(removedTask.toString());
+        ui.showDoneMessage();
+        ui.showMessage(markedTask.toString());
         ui.showMessage(String.format("Now you have %d task(s) in the list.", tasks.getSize()));
     }
 }
+

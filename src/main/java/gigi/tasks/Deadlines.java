@@ -1,4 +1,5 @@
-import java.time.LocalDate;
+package gigi.task;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -32,7 +33,8 @@ public class Deadlines extends Task{
     }
 
     public String convertToText() {
-        return "D | " + super.convertToText() + " | " + this.deadline;
+        return "D | " + super.convertToText() + " | "
+                + this.deadline.format(DateTimeFormatter.ofPattern("d MMM yyyy"));
     }
 
     public String toString() {

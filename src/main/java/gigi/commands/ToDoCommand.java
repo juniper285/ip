@@ -1,3 +1,5 @@
+package gigi.command;
+
 public class ToDoCommand extends Command {
     public static final String COMMAND_WORD = "todo";
     private final String description;

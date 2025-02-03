@@ -1,3 +1,5 @@
+package gigi.task;
+
 public class ToDos extends Task{
     protected String taskName;
     protected boolean isComplete;
@@ -22,6 +24,10 @@ public class ToDos extends Task{
 
     void markUndone(int index) {
         super.markUndone(index);
+    }
+
+    public String convertToText() {
+        return "T" + " | " + super.convertToText();
     }
 
     public String toString() {

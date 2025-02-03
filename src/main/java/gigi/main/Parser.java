@@ -1,3 +1,6 @@
+import gigi.commands.*;
+import gigi.exceptions.GigiException;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -67,7 +70,7 @@ public class Parser {
     private static Command startEvent(String details) throws GigiException {
         String[] eventDetails = details.split(" /from | /by ", 3);
         if (eventDetails.length < 3) {
-            throw new GigiException("MEOW! Events must have a description, '/from' date, and '/by' deadline.");
+            throw new GigiException("MEOW! gigi.task.Events must have a description, '/from' date, and '/by' deadline.");
         }
         return new EventCommand(eventDetails[0], parseDateTime(eventDetails[1]), parseDateTime(eventDetails[2]));
     }
@@ -98,13 +101,6 @@ public class Parser {
         }
 
         throw new GigiException("MEOW! Invalid date format. Use formats like 'yyyy-MM-dd HH:mm' or 'yyyy-MM-dd'.");
-    }
-
-    public static void MarkCommand(String details) throws GigiException {
-    }
-
-    public static void UnMarkCommand(String details) throws GigiException {
-
     }
 
 }

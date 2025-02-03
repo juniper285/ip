@@ -1,3 +1,7 @@
+package gigi.command;
+
+import gigi.task.Tasklist;
+
 public class ByeCommand extends Command {
     public static final String COMMAND_WORD = "bye";
 

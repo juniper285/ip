@@ -1,3 +1,5 @@
+package gigi.task;
+
 import java.util.ArrayList;
 
 public class Tasklist {
@@ -12,6 +14,7 @@ public class Tasklist {
     }
 
     public void addTask(Task task) {
+
         this.tasks.add(task);
     }
 
@@ -34,6 +37,10 @@ public class Tasklist {
 
     public void saveTasks(Storage storage) throws GigiException {
         storage.saveTasksToFile(tasks);
+    }
+
+    public void getTasks(Storage storage) throws GigiException {
+        storage.loadTasksFromFile();
     }
 
     public int getSize() {

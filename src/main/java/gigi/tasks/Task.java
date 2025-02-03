@@ -1,7 +1,12 @@
+package gigi.task;
+
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-public abstract class Command {
+public class Task {
+    protected String taskName;
+    protected boolean isComplete;
+
     protected static final List<DateTimeFormatter> FORMATTERS = List.of(
             DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm"),
             DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"),
@@ -16,9 +21,30 @@ public abstract class Command {
             DateTimeFormatter.ISO_LOCAL_DATE_TIME
     );
 
-    public abstract void execute(Tasklist tasks, Ui ui, Storage storage) throws GigiException;
-
-    public boolean isExit() {
-        return false;
+    public Task(String taskName) {
+        this.taskName = taskName;
+        this.isComplete = false;
     }
+
+    public String getStatusIcon() {
+        return (isComplete ? "[X]" : "[ ]");
+    }
+
+    void markDone(int index) {
+        this.isComplete = true;
+    }
+
+    void markUndone(int index) {
+        this.isComplete = false;
+    }
+
+    public String convertToText() {
+        return isComplete + " | " + this.taskName;
+    }
+
+    public String toString() {
+        return this.getStatusIcon() + " " + this.taskName;
+    }
+
 }
+
