@@ -1,5 +1,8 @@
+package gigi.main;
+
 import gigi.commands.Command;
 import gigi.exceptions.GigiException;
+import gigi.main.Parser;
 import gigi.storage.Storage;
 import gigi.tasks.Tasklist;
 import gigi.ui.Ui;

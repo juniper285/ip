@@ -1,4 +1,10 @@
-package gigi.command;
+package gigi.commands;
+
+import gigi.exceptions.GigiException;
+import gigi.storage.Storage;
+import gigi.tasks.Task;
+import gigi.tasks.Tasklist;
+import gigi.ui.Ui;
 
 public class DeleteCommand extends Command {
     public static final String COMMAND_WORD = "delete";

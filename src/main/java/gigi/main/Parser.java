@@ -1,4 +1,7 @@
+package gigi.main;
+
 import gigi.commands.*;
+
 import gigi.exceptions.GigiException;
 
 import java.time.LocalDate;

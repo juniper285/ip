@@ -1,7 +1,11 @@
-import gigi.task.Deadlines;
-import gigi.task.Events;
-import gigi.task.Task;
-import gigi.task.ToDos;
+package gigi.storage;
+
+import gigi.exceptions.GigiException;
+import gigi.main.Parser;
+import gigi.tasks.Deadlines;
+import gigi.tasks.Events;
+import gigi.tasks.Task;
+import gigi.tasks.ToDos;
 
 import java.io.*;
 import java.util.ArrayList;
