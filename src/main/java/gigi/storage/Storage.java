@@ -1,7 +1,11 @@
-import gigi.task.Deadlines;
-import gigi.task.Events;
-import gigi.task.Task;
-import gigi.task.ToDos;
+package gigi.storage;
+
+import gigi.tasks.Deadlines;
+import gigi.tasks.Events;
+import gigi.tasks.Task;
+import gigi.tasks.ToDos;
+import gigi.exceptions.GigiException;
+import gigi.main.Parser;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -20,11 +24,11 @@ public class Storage {
         return switch (taskType) {
             case "T" -> new ToDos(info[2], isDone);
             case "D" -> new Deadlines(info[2],
-                    Parser.parseDateTime(info[3]),
+                    gigi.main.Parser.parseDateTime(info[3]),
                     isDone);
             case "E" -> new Events(info[2],
-                    Parser.parseDateTime(info[3]),
-                    Parser.parseDateTime(info[4]),
+                    gigi.main.Parser.parseDateTime(info[3]),
+                    gigi.main.Parser.parseDateTime(info[4]),
                     isDone);
             default -> throw new GigiException("Unknown task type: " + taskType);
         };

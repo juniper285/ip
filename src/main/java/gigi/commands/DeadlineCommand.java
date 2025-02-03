@@ -1,4 +1,10 @@
-package gigi.command;
+package gigi.commands;
+
+import gigi.exceptions.GigiException;
+import gigi.storage.Storage;
+import gigi.tasks.Deadlines;
+import gigi.tasks.Tasklist;
+import gigi.ui.Ui;
 
 import java.time.LocalDateTime;
 
@@ -21,6 +27,6 @@ public class DeadlineCommand extends Command {
 
         ui.showAddMessage();
         ui.showMessage(String.valueOf(deadline));
-        ui.showMessage(String.format("Now you have %d task(s) in the list.", tasks.getSize()));
+        ui.showNumListMessage(tasks);
     }
 }

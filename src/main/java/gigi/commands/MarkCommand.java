@@ -1,4 +1,10 @@
-package gigi.command;
+package gigi.commands;
+
+import gigi.exceptions.GigiException;
+import gigi.storage.Storage;
+import gigi.tasks.Task;
+import gigi.tasks.Tasklist;
+import gigi.ui.Ui;
 
 public class MarkCommand extends Command {
     public static final String COMMAND_WORD = "mark";
@@ -20,7 +26,7 @@ public class MarkCommand extends Command {
 
         ui.showDoneMessage();
         ui.showMessage(markedTask.toString());
-        ui.showMessage(String.format("Now you have %d task(s) in the list.", tasks.getSize()));
+        ui.showNumListMessage(tasks);
     }
 }
 

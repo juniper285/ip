@@ -1,4 +1,10 @@
-package gigi.command;
+package gigi.commands;
+
+import gigi.exceptions.GigiException;
+import gigi.storage.Storage;
+import gigi.tasks.Tasklist;
+import gigi.tasks.ToDos;
+import gigi.ui.Ui;
 
 public class ToDoCommand extends Command {
     public static final String COMMAND_WORD = "todo";
@@ -20,6 +26,6 @@ public class ToDoCommand extends Command {
 
         ui.showAddMessage();
         ui.showMessage(String.valueOf(todo));
-        ui.showMessage(String.format("Now you have %d task(s) in the list.", tasks.getSize()));
+        ui.showNumListMessage(tasks);
     }
 }

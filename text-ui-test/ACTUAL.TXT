@@ -1,7 +1,7 @@
 ____________________________________________________________ 
 
 MEOW! 
-I'm Gigi, the mighty demon keeping this place running. 
+I'm gigi.main.Gigi, the mighty demon keeping this place running.
 What do you want? 
 
 ____________________________________________________________ 
@@ -79,7 +79,7 @@ ____________________________________________________________
 ____________________________________________________________ 
 
 MEOW! Unable to save tasks to file: 
-.\data\Gigi.txt (The system cannot find the path specified)
+.\data\gigi.main.Gigi.txt (The system cannot find the path specified)
 See ya! 
 Don't forget - this mighty fiery feline doesn't wait forever. 
 Meow!

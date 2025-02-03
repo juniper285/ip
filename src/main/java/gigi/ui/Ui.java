@@ -1,3 +1,7 @@
+package gigi.ui;
+
+import gigi.tasks.Tasklist;
+
 import java.util.Scanner;
 
 public class Ui {
@@ -47,6 +51,10 @@ public class Ui {
         System.out.println("See ya! \n"
                 + "Don't forget - this mighty fiery feline doesn't wait forever. \n"
                 + "Meow!");
+    }
+
+    public void showNumListMessage(Tasklist tasks) {
+        System.out.println(String.format("Now you have %d task(s) in the list.", tasks.getSize()));
     }
 
     public void showDoneMessage() {

@@ -1,4 +1,10 @@
-package gigi.command;
+package gigi.commands;
+
+import gigi.exceptions.GigiException;
+import gigi.storage.Storage;
+import gigi.tasks.Task;
+import gigi.tasks.Tasklist;
+import gigi.ui.Ui;
 
 public class DeleteCommand extends Command {
     public static final String COMMAND_WORD = "delete";
@@ -20,6 +26,6 @@ public class DeleteCommand extends Command {
 
         ui.showDelMessage();
         ui.showMessage(removedTask.toString());
-        ui.showMessage(String.format("Now you have %d task(s) in the list.", tasks.getSize()));
+        ui.showNumListMessage(tasks);
     }
 }
