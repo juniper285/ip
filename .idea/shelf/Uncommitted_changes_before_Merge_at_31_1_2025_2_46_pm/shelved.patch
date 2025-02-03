@@ -1,0 +1,58 @@
+Index: ip/text-ui-test/ACTUAL.TXT
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>____________________________________________________________ \r\n\r\nMEOW! \r\nI'm Gigi, the mighty demon keeping this place running. \r\nWhat do you want? \r\n\r\n____________________________________________________________ \r\n\r\n____________________________________________________________ \r\n\r\nMeow! I've pawed this task into the list - don't make me scratch it out later. \r\n\r\n[T][ ] read book\r\n\r\nRemember now, you have 1 task(s) to do.\r\n____________________________________________________________ \r\n\r\n____________________________________________________________ \r\n\r\nWhere is your todo?\r\n____________________________________________________________ \r\n\r\n____________________________________________________________ \r\n\r\nMeow! I've pawed this task into the list - don't make me scratch it out later.\r\n[D][ ] submit assignment (by: friday)\r\nRemember now, you have 2 task(s) to do.\r\n____________________________________________________________ \r\n\r\n____________________________________________________________ \r\n\r\nMEOW!!! The deadline must include a '/by' clause.\r\n____________________________________________________________ \r\n\r\n____________________________________________________________ \r\n\r\nMeow! I've pawed this task into the list - don't make me scratch it out later.\r\n[E][ ] team meeting (from: monday 2pm to: 3pm)\r\nRemember now, you have 3 task(s) to do.\r\n____________________________________________________________ \r\n\r\n____________________________________________________________ \r\n\r\nMEOW!!! The event must include '/from' and '/to' clauses.\r\n____________________________________________________________ \r\n\r\n____________________________________________________________ \r\n\r\nDon't forget what you have to do:\r\n1. [T][ ] read book\r\n2. [D][ ] submit assignment (by: friday)\r\n3. [E][ ] team meeting (from: monday 2pm to: 3pm)\r\n____________________________________________________________ \r\n\r\n____________________________________________________________ \r\n\r\nNice! I've marked this task as done:\r\n\r\n[T][X] read book\r\n____________________________________________________________ \r\n\r\n____________________________________________________________ \r\n\r\nMeow, I've marked this task as not done yet:\r\n\r\n[T][ ] read book\r\n____________________________________________________________ \r\n\r\n____________________________________________________________ \r\n\r\nMEOW. This task never existed: \r\n\r\n[D][ ] submit assignment (by: friday)\r\nYou have 2 tasks to do.\r\n____________________________________________________________ \r\n\r\n____________________________________________________________ \r\n\r\nMEOW! You don't have that many tasks\r\n____________________________________________________________ \r\n\r\n____________________________________________________________ \r\n\r\nI've got no clue what that means - care to explain?\r\n____________________________________________________________ \r\n\r\n____________________________________________________________ \r\n\r\nMEOW! Unable to save tasks to file: /n.\\data\\Gigi.txt (The system cannot find the path specified)\r\nSee ya! \r\nDon't forget - this mighty fiery feline doesn't wait forever. \r\nMeow!\r\n____________________________________________________________ \r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ip/text-ui-test/ACTUAL.TXT b/ip/text-ui-test/ACTUAL.TXT
+--- a/ip/text-ui-test/ACTUAL.TXT	(revision 2a3b311fbbfe833a81540544776042168f3c956c)
++++ b/ip/text-ui-test/ACTUAL.TXT	(date 1738305908515)
+@@ -22,9 +22,7 @@
+ 
+ ____________________________________________________________ 
+ 
+-Meow! I've pawed this task into the list - don't make me scratch it out later.
+-[D][ ] submit assignment (by: friday)
+-Remember now, you have 2 task(s) to do.
++MEOW! Must be in format MM/DD/YYYY
+ ____________________________________________________________ 
+ 
+ ____________________________________________________________ 
+@@ -35,8 +33,7 @@
+ ____________________________________________________________ 
+ 
+ Meow! I've pawed this task into the list - don't make me scratch it out later.
+-[E][ ] team meeting (from: monday 2pm to: 3pm)
+-Remember now, you have 3 task(s) to do.
++MEOW! Must be in format MM/DD/YYYY
+ ____________________________________________________________ 
+ 
+ ____________________________________________________________ 
+@@ -48,8 +45,6 @@
+ 
+ Don't forget what you have to do:
+ 1. [T][ ] read book
+-2. [D][ ] submit assignment (by: friday)
+-3. [E][ ] team meeting (from: monday 2pm to: 3pm)
+ ____________________________________________________________ 
+ 
+ ____________________________________________________________ 
+@@ -68,10 +63,7 @@
+ 
+ ____________________________________________________________ 
+ 
+-MEOW. This task never existed: 
+-
+-[D][ ] submit assignment (by: friday)
+-You have 2 tasks to do.
++MEOW! You don't have that many tasks
+ ____________________________________________________________ 
+ 
+ ____________________________________________________________ 
+@@ -90,5 +82,3 @@
+ See ya! 
+ Don't forget - this mighty fiery feline doesn't wait forever. 
+ Meow!
+-____________________________________________________________ 
+-
