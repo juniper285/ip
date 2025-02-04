@@ -1,4 +1,4 @@
-package gigi.main;
+package main.java.gigi;
 
 import gigi.commands.Command;
 import gigi.exceptions.GigiException;
@@ -12,6 +12,10 @@ public class Gigi {
     private final Storage storage;
     private Tasklist tasks;
     private final Ui ui;
+
+    public static void main(String[] args) {
+        new Gigi(FILE_PATH).run();
+    }
 
     public Gigi(String filePath) {
         ui = new Ui();
@@ -32,8 +36,7 @@ public class Gigi {
             try {
                 String fullCommand = ui.readCommand();
                 ui.showLine();
-                Command c;
-                c = Parser.parse(fullCommand);
+                Command c = Parser.parse(fullCommand);
                 c.execute(tasks,ui,storage);
                 isExit = c.isExit();
             } catch (GigiException e) {
@@ -42,9 +45,5 @@ public class Gigi {
                 ui.showLine();
             }
         }
-    }
-
-    public static void main(String[] args) {
-        new Gigi(FILE_PATH).run();
     }
 }
