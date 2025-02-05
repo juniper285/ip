@@ -1,6 +1,6 @@
-package java.ui;
+package gigi.ui;
 
-import java.tasks.Tasklist;
+import gigi.tasks.Tasklist;
 import java.util.Scanner;
 
 /**

@@ -1,10 +1,10 @@
-package java.commands;
+package gigi.commands;
 
-import java.exceptions.GigiException;
-import java.storage.Storage;
-import java.tasks.Tasklist;
-import java.tasks.ToDos;
-import java.ui.Ui;
+import gigi.exceptions.GigiException;
+import gigi.storage.Storage;
+import gigi.tasks.Tasklist;
+import gigi.tasks.ToDos;
+import gigi.ui.Ui;
 
 /**
  * Represents a command to add a ToDo task to the task list.

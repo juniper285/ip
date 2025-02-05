@@ -1,4 +1,4 @@
-package java.tasks;
+package gigi.tasks;
 
 /**
  * Represents a ToDo task in Gigi.

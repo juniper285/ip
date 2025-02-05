@@ -1,10 +1,10 @@
-package java.commands;
+package gigi.commands;
 
-import java.exceptions.GigiException;
-import java.storage.Storage;
-import java.tasks.Deadlines;
-import java.tasks.Tasklist;
-import java.ui.Ui;
+import gigi.exceptions.GigiException;
+import gigi.storage.Storage;
+import gigi.tasks.Deadlines;
+import gigi.tasks.Tasklist;
+import gigi.ui.Ui;
 
 import java.time.LocalDateTime;
 

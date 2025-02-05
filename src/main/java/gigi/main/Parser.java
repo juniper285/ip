@@ -1,16 +1,7 @@
-package java;
+package gigi.main;
 
-import java.commands.ByeCommand;
-import java.commands.Command;
-import java.commands.DeadlineCommand;
-import java.commands.DeleteCommand;
-import java.commands.EventCommand;
-import java.commands.FindCommand;
-import java.commands.ListCommand;
-import java.commands.MarkCommand;
-import java.commands.ToDoCommand;
-import java.commands.UnmarkCommand;
-import java.exceptions.GigiException;
+import gigi.commands.*;
+import gigi.exceptions.GigiException;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -65,7 +56,6 @@ import java.util.List;
             //case ClearCommand.COMMAND_WORD -> new ClearCommand();
             case ByeCommand.COMMAND_WORD -> new ByeCommand();
             case ListCommand.COMMAND_WORD -> new ListCommand();
-            case FindCommand.COMMAND_WORD -> new FindCommand(details);
             case MarkCommand.COMMAND_WORD -> new MarkCommand(Integer.parseInt(details));
             case UnmarkCommand.COMMAND_WORD -> new UnmarkCommand(Integer.parseInt(details));
             //case HelpCommand.COMMAND_WORD -> new HelpCommand();

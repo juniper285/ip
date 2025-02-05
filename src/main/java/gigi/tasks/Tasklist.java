@@ -1,7 +1,8 @@
-package java.tasks;
+package gigi.tasks;
 
-import java.exceptions.GigiException;
-import java.storage.Storage;
+import gigi.exceptions.GigiException;
+import gigi.storage.Storage;
+import gigi.ui.Ui;
 
 import java.util.ArrayList;
 
@@ -49,20 +50,22 @@ public class Tasklist {
     }
 
     /**
-     * Retrieves a formatted list of all tasks with their respective indices (from 1).
+     * Displays the list of tasks using the UI.
      *
-     * @return A list of formatted task strings, where each task is numbered.
+     * @param ui The UI component responsible for displaying messages.
      */
-    public List<String> getTaskList() {
-        List<String> allTasks = new ArrayList<>();
-        for (int i = 0; i < tasks.size(); i++) {
-            if (tasks.get(i) != null) {
-                allTasks.add((i + 1) + ". " + tasks.get(i));
+    public void getList(Ui ui) {
+        if (this.tasks.isEmpty()) {
+            ui.showMessage("MEOW!!! You have nothing on your list.");
+        } else {
+            ui.showMessage("Don't forget what you have to do:");
+            for (int i = 0; i < tasks.size(); i++) {
+                if (tasks.get(i) != null) {
+                    ui.showMessage((i + 1) + ". " + tasks.get(i));
+                }
             }
         }
-        return allTasks;
     }
-
 
     /**
      * Saves the current list of tasks to storage.
@@ -128,17 +131,6 @@ public class Tasklist {
      */
     public void markTaskAsUndone(int taskIndex) {
         tasks.get(taskIndex).markUndone(taskIndex);
-    }
-
-    public Tasklist getMatchingTasks(String keyword) {
-        Tasklist result = new Tasklist();
-        for (Task task : tasks) {
-            String taskName = task.getTaskName();
-            if (taskName.contains(keyword)) {
-                result.addTask(task);
-            }
-        }
-        return result;
     }
 
 }
