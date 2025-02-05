@@ -1,10 +1,10 @@
-package gigi.commands;
+package java.commands;
 
-import gigi.exceptions.GigiException;
-import gigi.storage.Storage;
-import gigi.tasks.Task;
-import gigi.tasks.Tasklist;
-import gigi.ui.Ui;
+import java.exceptions.GigiException;
+import java.storage.Storage;
+import java.tasks.Task;
+import java.tasks.Tasklist;
+import java.ui.Ui;
 
 public class DeleteCommand extends Command {
     public static final String COMMAND_WORD = "delete";

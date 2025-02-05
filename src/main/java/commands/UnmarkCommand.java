@@ -1,31 +1,32 @@
-package gigi.commands;
+package java.commands;
 
-import gigi.exceptions.GigiException;
-import gigi.storage.Storage;
-import gigi.tasks.Task;
-import gigi.tasks.Tasklist;
-import gigi.ui.Ui;
+import java.exceptions.GigiException;
+import java.storage.Storage;
+import java.tasks.Task;
+import java.tasks.Tasklist;
+import java.ui.Ui;
 
 /**
- * Represents a command to mark a task as done in the task list.
- * This command is triggered when the user inputs "mark" followed by a task index.
+ * Represents a command to unmark a task as done in the task list.
+ * This command is triggered when the user inputs "unmark" followed by a task index.
  */
-public class MarkCommand extends Command {
-    public static final String COMMAND_WORD = "mark";
-    public final int taskIndex;
+
+public class UnmarkCommand extends Command {
+    public static final String COMMAND_WORD = "unmark";
+    private final int taskIndex;
 
     /**
-     * Constructs a MarkCommand with the specified task index.
+     * Constructs an UnmarkCommand with the specified task index.
      * The index is adjusted to be zero-based for internal processing.
      *
      * @param i The 1-based task index provided by the user.
      */
-    public MarkCommand(int i) {
+    public UnmarkCommand(int i) {
         this.taskIndex = i - 1;
     }
 
     /**
-     * Executes the command to mark a task as done.
+     * Executes the command to unmark a task as done.
      * If the task index is invalid, an exception is thrown.
      * Otherwise, the task is updated, saved, and a confirmation message is shown.
      *
@@ -40,12 +41,12 @@ public class MarkCommand extends Command {
             throw new GigiException("MEOW! You don't have that many tasks.");
         }
 
-        Task markedTask = tasks.getTask(taskIndex);
-        tasks.markTaskAsDone(taskIndex);
+        Task unmarkedTask = tasks.getTask(taskIndex);
+        tasks.markTaskAsUndone(taskIndex);
         tasks.saveTasks(storage);
 
-        ui.showDoneMessage();
-        ui.showMessage(markedTask.toString());
+        ui.showUndoneMessage();
+        ui.showMessage(unmarkedTask.toString());
         ui.showTaskNumber(tasks);
     }
 }

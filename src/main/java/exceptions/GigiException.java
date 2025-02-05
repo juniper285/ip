@@ -1,4 +1,4 @@
-package gigi.exceptions;
+package java.exceptions;
 
 public class GigiException extends Exception{
 
