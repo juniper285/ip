@@ -1,4 +1,4 @@
-package gigi.tasks;
+package main.java.tasks;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

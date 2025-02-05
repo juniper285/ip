@@ -1,9 +1,8 @@
-package gigi.tasks;
+package main.java.tasks;
 
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,7 +17,7 @@ public class EventsTest {
         assertEquals("Team meeting", event.taskName, "Task name should be correctly set");
         assertEquals(startTime, event.startTime, "Start time should be correctly set");
         assertEquals(endTime, event.endTime, "End time should be correctly set");
-        assertFalse(event.complete, "New Events task should be incomplete by default");
+        assertFalse(event.isComplete, "New Events task should be incomplete by default");
     }
 
     @Test

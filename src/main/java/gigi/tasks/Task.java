@@ -1,7 +1,4 @@
-package gigi.tasks;
-
-import java.time.format.DateTimeFormatter;
-import java.util.List;
+package main.java.tasks;
 
 /**
  * Represents a task in Gigi.
@@ -30,6 +27,10 @@ public class Task {
      */
     public String getStatusIcon() {
         return (isComplete ? "[X]" : "[ ]");
+    }
+
+    public String getTaskname() {
+        return taskName;
     }
 
     /**

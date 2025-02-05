@@ -1,10 +1,10 @@
-package gigi.commands;
+package main.java.commands;
 
-import gigi.exceptions.GigiException;
-import gigi.storage.Storage;
-import gigi.tasks.Task;
-import gigi.tasks.Tasklist;
-import gigi.ui.Ui;
+import main.java.exceptions.GigiException;
+import main.java.storage.Storage;
+import main.java.tasks.Task;
+import main.java.tasks.Tasklist;
+import main.java.ui.Ui;
 
 /**
  * Represents a command to mark a task as done in the task list.
@@ -12,7 +12,7 @@ import gigi.ui.Ui;
  */
 public class MarkCommand extends Command {
     public static final String COMMAND_WORD = "mark";
-    public final int taskIndex;
+    private final int taskIndex;
 
     /**
      * Constructs a MarkCommand with the specified task index.
