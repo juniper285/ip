@@ -1,9 +1,16 @@
-package gigi.main;
+package main.java;
 
-import gigi.commands.*;
-
-import gigi.commands.Command;
-import gigi.exceptions.GigiException;
+import main.java.commands.ByeCommand;
+import main.java.commands.Command;
+import main.java.commands.DeadlineCommand;
+import main.java.commands.DeleteCommand;
+import main.java.commands.EventCommand;
+import main.java.commands.FindCommand;
+import main.java.commands.ListCommand;
+import main.java.commands.MarkCommand;
+import main.java.commands.ToDoCommand;
+import main.java.commands.UnmarkCommand;
+import main.java.exceptions.GigiException;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -11,7 +18,12 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.List;
 
-public class Parser {
+/**
+ * Parses user input and converts it into corresponding command objects.
+ * This class handles extracting command words and arguments,
+ * as well as parsing date and time inputs.
+ */
+ public class Parser {
     protected static final List<DateTimeFormatter> FORMATTERS = List.of(
             DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm"),
             DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"),
@@ -33,6 +45,13 @@ public class Parser {
             DateTimeFormatter.ofPattern("d MMMM yyyy")
     );
 
+    /**
+     * Parses user input and returns the corresponding command object.
+     *
+     * @param input The raw user input.
+     * @return The corresponding {@code Command} object.
+     * @throws GigiException If the command is invalid.
+     */
     public static Command parse(String input) throws GigiException {
         String[] parts = input.split("\\s+", 2);
         String commandWord = parts[0];
@@ -46,6 +65,7 @@ public class Parser {
             //case ClearCommand.COMMAND_WORD -> new ClearCommand();
             case ByeCommand.COMMAND_WORD -> new ByeCommand();
             case ListCommand.COMMAND_WORD -> new ListCommand();
+            case FindCommand.COMMAND_WORD -> new FindCommand(details);
             case MarkCommand.COMMAND_WORD -> new MarkCommand(Integer.parseInt(details));
             case UnmarkCommand.COMMAND_WORD -> new UnmarkCommand(Integer.parseInt(details));
             //case HelpCommand.COMMAND_WORD -> new HelpCommand();
@@ -85,9 +105,10 @@ public class Parser {
     }
 
     public static LocalDateTime parseDateTime(String dateTimeString) throws GigiException {
+        dateTimeString = dateTimeString.trim();
+
         for (DateTimeFormatter formatter : FORMATTERS) {
             try {
-                // Attempt to parse as LocalDateTime first
                 return LocalDateTime.parse(dateTimeString, formatter);
             } catch (DateTimeParseException ignored) {
             }
@@ -101,7 +122,7 @@ public class Parser {
             }
         }
 
-        throw new GigiException("MEOW! Invalid date format. Use formats like 'yyyy-MM-dd HH:mm' or 'yyyy-MM-dd'.");
+        throw new GigiException("MEOW! Invalid date format.");
     }
 
 }

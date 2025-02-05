@@ -1,11 +1,10 @@
-package main.java.gigi;
+package main.java;
 
-import gigi.commands.Command;
-import gigi.exceptions.GigiException;
-import gigi.main.Parser;
-import gigi.storage.Storage;
-import gigi.tasks.Tasklist;
-import gigi.ui.Ui;
+import main.java.commands.Command;
+import main.java.exceptions.GigiException;
+import main.java.storage.Storage;
+import main.java.tasks.Tasklist;
+import main.java.ui.Ui;
 
 public class Gigi {
     private static final String FILE_PATH = "./data/Gigi.txt";

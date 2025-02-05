@@ -1,14 +1,14 @@
-package gigi.commands;
+package main.java.commands;
 
-import gigi.exceptions.GigiException;
-import gigi.storage.Storage;
-import gigi.tasks.Task;
-import gigi.tasks.Tasklist;
-import gigi.ui.Ui;
+import main.java.exceptions.GigiException;
+import main.java.storage.Storage;
+import main.java.tasks.Task;
+import main.java.tasks.Tasklist;
+import main.java.ui.Ui;
 
 public class UnmarkCommand extends Command {
     public static final String COMMAND_WORD = "unmark";
-    public final int taskIndex;
+    private final int taskIndex;
 
     public UnmarkCommand(int i) {
         this.taskIndex = i - 1;

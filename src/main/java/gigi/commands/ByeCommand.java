@@ -1,9 +1,9 @@
-package gigi.commands;
+package main.java.commands;
 
-import gigi.tasks.Tasklist;
-import gigi.ui.Ui;
-import gigi.storage.Storage;
-import gigi.exceptions.GigiException;
+import main.java.tasks.Tasklist;
+import main.java.ui.Ui;
+import main.java.storage.Storage;
+import main.java.exceptions.GigiException;
 
 public class ByeCommand extends Command {
     public static final String COMMAND_WORD = "bye";
