@@ -10,13 +10,29 @@ import gigi.tasks.ToDos;
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ * Handles file storage operations for saving and loading tasks.
+ * This class is responsible for reading and writing tasks to a file.
+ */
 public class Storage {
     private final String filePath;
 
+    /**
+     * Constructs a Storage instance with a specified file path.
+     *
+     * @param filePath The path of the file where tasks are stored.
+     */
     public Storage(String filePath) {
         this.filePath = filePath;
     }
 
+    /**
+     * Converts a formatted task string from storage into a Task object.
+     *
+     * @param line The stored task string.
+     * @return The corresponding Task object.
+     * @throws GigiException If the task type is unknown.
+     */
     public static Task convertToTask(String line) throws GigiException {
         String[] info = line.split(" \\| ");
         String taskType = info[0];
@@ -34,6 +50,13 @@ public class Storage {
         };
     }
 
+    /**
+     * Loads tasks from the specified file and returns them as a list.
+     * If the file does not exist, an empty list is returned.
+     *
+     * @return A list of tasks retrieved from the file.
+     * @throws GigiException If an error occurs while reading the file.
+     */
     public ArrayList<Task> loadTasksFromFile() throws GigiException {
         ArrayList<Task> tasks = new ArrayList<>();
         File file = new File(filePath);
@@ -51,6 +74,13 @@ public class Storage {
         return tasks;
     }
 
+    /**
+     * Saves the list of tasks to the specified file.
+     * Each task is converted to a string format before being written to the file.
+     *
+     * @param tasks The list of tasks to be saved.
+     * @throws GigiException If an error occurs while writing to the file.
+     */
     public void saveTasksToFile(ArrayList<Task> tasks) throws GigiException {
         try (PrintWriter pw = new PrintWriter(new FileWriter(filePath))) {
             for (Task task : tasks) {

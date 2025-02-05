@@ -3,45 +3,71 @@ package gigi.tasks;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+/**
+ * Represents a task in Gigi.
+ * This class serves as the base class for different types of tasks,
+ * such as ToDo, Deadline, and Event tasks
+ */
 public class Task {
     protected String taskName;
     protected boolean isComplete;
 
-    protected static final List<DateTimeFormatter> FORMATTERS = List.of(
-            DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm"),
-            DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"),
-            DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"),
-            DateTimeFormatter.ofPattern("d MMM yyyy HH:mm"),
-            DateTimeFormatter.ofPattern("d MMMM yyyy HH:mm"),
-            DateTimeFormatter.ofPattern("MM/dd/yyyy h:mm a"),
-            DateTimeFormatter.ofPattern("dd/MM/yyyy h:mm a"),
-            DateTimeFormatter.ofPattern("yyyy-MM-dd h:mm a"),
-            DateTimeFormatter.ofPattern("d MMM yyyy h:mm a"),
-            DateTimeFormatter.ofPattern("d MMMM yyyy h:mm a"),
-            DateTimeFormatter.ISO_LOCAL_DATE_TIME
-    );
-
+    /**
+     * Constructs a new task with the specified name.
+     * The task is initially marked as incomplete.
+     *
+     * @param taskName The name of the task.
+     */
     public Task(String taskName) {
         this.taskName = taskName;
         this.isComplete = false;
     }
 
+    /**
+     * Returns the status icon indicating whether the task is complete or not.
+     *
+     * @return A string representing the task's completion status.
+     */
     public String getStatusIcon() {
         return (isComplete ? "[X]" : "[ ]");
     }
 
+    /**
+     * Marks this task as done.
+     * The task's completion status is updated to true.
+     *
+     * @param index The index of the task in the list (not used in this implementation).
+     */
     void markDone(int index) {
         this.isComplete = true;
     }
 
+    /**
+     * Marks this task as not done.
+     * The task's completion status is updated to false.
+     *
+     * @param index The index of the task in the list (not used in this implementation).
+     */
     void markUndone(int index) {
         this.isComplete = false;
     }
 
+    /**
+     * Converts the task into a formatted string for storage.
+     *
+     * @return A string representation of the task for saving.
+     */
     public String convertToText() {
         return isComplete + " | " + this.taskName;
     }
 
+    /**
+     * Returns a string representation of the task,
+     * including its status icon and name.
+     *
+     * @return A formatted string describing the task.
+     */
+    @Override
     public String toString() {
         return this.getStatusIcon() + " " + this.taskName;
     }

@@ -8,21 +8,21 @@ import gigi.ui.Ui;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-public abstract class Command {
-    protected static final List<DateTimeFormatter> FORMATTERS = List.of(
-            DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm"),
-            DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"),
-            DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"),
-            DateTimeFormatter.ofPattern("d MMM yyyy HH:mm"),
-            DateTimeFormatter.ofPattern("d MMMM yyyy HH:mm"),
-            DateTimeFormatter.ofPattern("MM/dd/yyyy h:mm a"),
-            DateTimeFormatter.ofPattern("dd/MM/yyyy h:mm a"),
-            DateTimeFormatter.ofPattern("yyyy-MM-dd h:mm a"),
-            DateTimeFormatter.ofPattern("d MMM yyyy h:mm a"),
-            DateTimeFormatter.ofPattern("d MMMM yyyy h:mm a"),
-            DateTimeFormatter.ISO_LOCAL_DATE_TIME
-    );
+/**
+ * Represents an abstract command in the Gigi chatbot.
+ * All specific command types (e.g., adding, deleting, marking tasks) extend this class.
+ */
 
+public abstract class Command {
+
+    /**
+     * Executes the command with the given task list, UI, and storage.
+     *
+     * @param tasks   The task list containing all tasks.
+     * @param ui      The UI instance for displaying messages.
+     * @param storage The storage instance for saving tasks.
+     * @throws GigiException If an error occurs during command execution.
+     */
     public abstract void execute(Tasklist tasks, Ui ui, Storage storage) throws GigiException;
 
     public boolean isExit() {
