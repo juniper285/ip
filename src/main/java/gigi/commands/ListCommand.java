@@ -1,9 +1,9 @@
-package gigi.commands;
+package main.java.commands;
 
-import gigi.exceptions.GigiException;
-import gigi.storage.Storage;
-import gigi.tasks.Tasklist;
-import gigi.ui.Ui;
+import main.java.exceptions.GigiException;
+import main.java.storage.Storage;
+import main.java.tasks.Tasklist;
+import main.java.ui.Ui;
 
 public class ListCommand extends Command {
     public static final String COMMAND_WORD = "list";
@@ -12,7 +12,14 @@ public class ListCommand extends Command {
 
     @Override
     public void execute(Tasklist tasks, Ui ui, Storage storage) throws GigiException {
-        tasks.getList(ui);
+        if (tasks.isEmpty()) {
+            ui.showMessage("MEOW!!! You have nothing to do.");
+        } else {
+            ui.showMessage("Don't forget what you have to do:");
+            for (String task : tasks.getTaskList()) {
+                ui.showMessage(task);
+            }
+        }
         ui.showTaskNumber(tasks);
     }
 }
