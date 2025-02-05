@@ -21,7 +21,7 @@ public class ToDoCommand extends Command {
 
     /**
      * Executes the command to add a ToDo task to the task list.
-     * If the description is empty, an exception is thrown.
+     * If description is empty, an exception is thrown.
      * Otherwise, the task is added, saved, and a confirmation message is shown.
      *
      * @param tasks   The task list where the ToDo task will be added.
