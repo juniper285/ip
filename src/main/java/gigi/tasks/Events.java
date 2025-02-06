@@ -16,7 +16,6 @@ public class Events extends Task{
     private boolean isComplete;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-
     public static String iconEvent = "[E]";
 
     /**
