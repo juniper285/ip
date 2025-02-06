@@ -23,7 +23,7 @@ public class Task {
     /**
      * Returns the status icon indicating whether the task is complete or not.
      *
-     * @return A string representing the task's completion status.
+     * @return A string representing task's completion status.
      */
     public String getStatusIcon() {
         return (isComplete ? "[X]" : "[ ]");
