@@ -20,7 +20,7 @@ public class Events extends Task{
     /**
      * Constructs an event task with a given name, start time, and end time.
      *
-     * @param taskName  The name of the event task.
+     * @param taskName  The name of event task.
      * @param startTime The start time of the event.
      * @param endTime   The end time of the event.
      */
