@@ -17,6 +17,8 @@ public class Events extends Task{
     private LocalDateTime startTime;
     private LocalDateTime endTime;
 
+    public static String iconEvent = "[E]";
+
     /**
      * Constructs an event task with a given name, start time, and end time.
      *
@@ -82,7 +84,6 @@ public class Events extends Task{
      * @param index The index of the task in the list.
      */
     void markUndone(int index) {
-
         super.markUndone(index);
     }
 
