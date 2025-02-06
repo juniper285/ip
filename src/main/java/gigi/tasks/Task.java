@@ -2,7 +2,7 @@ package main.java.tasks;
 
 /**
  * Represents a task in Gigi.
- * This class serves as the base class for different types of tasks,
+ * This class serves as parent base class for different types of tasks,
  * such as ToDo, Deadline, and Event tasks
  */
 public class Task {
@@ -13,7 +13,7 @@ public class Task {
      * Constructs a new task with the specified name.
      * The task is initially marked as incomplete.
      *
-     * @param taskName The name of the task.
+     * @param taskName Name of the task.
      */
     public Task(String taskName) {
         this.taskName = taskName;

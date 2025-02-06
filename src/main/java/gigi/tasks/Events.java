@@ -46,6 +46,14 @@ public class Events extends Task{
         this.isComplete = isComplete;
     }
 
+    public LocalDateTime getStartTime() {
+        return startTime;
+    }
+
+    public LocalDateTime getEndTime() {
+        return endTime;
+    }
+
     /**
      * Constructs an event task with only a task name.
      * Note: This constructor does not initialize start or end times.
@@ -53,7 +61,6 @@ public class Events extends Task{
      * @param taskName The name of the event task.
      */
     public Events(String taskName) {
-
         super(taskName);
     }
 
