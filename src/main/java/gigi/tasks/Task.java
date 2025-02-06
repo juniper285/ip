@@ -6,8 +6,8 @@ package main.java.tasks;
  * such as ToDo, Deadline, and Event tasks
  */
 public class Task {
-    protected String taskName;
-    protected boolean isComplete;
+    private String taskName;
+    private boolean isComplete;
 
     /**
      * Constructs a new task with the specified name.

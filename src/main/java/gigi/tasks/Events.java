@@ -12,10 +12,10 @@ import java.time.format.DateTimeFormatter;
  * */
 
 public class Events extends Task{
-    protected String taskName;
-    protected boolean isComplete;
-    protected LocalDateTime startTime;
-    protected LocalDateTime endTime;
+    private String taskName;
+    private boolean isComplete;
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
 
     /**
      * Constructs an event task with a given name, start time, and end time.
