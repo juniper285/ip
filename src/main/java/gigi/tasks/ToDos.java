@@ -6,8 +6,8 @@ package main.java.tasks;
  * without any associated date or time.
  */
 public class ToDos extends Task {
-    protected String taskName;
-    protected boolean isComplete;
+    private String taskName;
+    private boolean isComplete;
 
     /**
      * Constructs a ToDo task with a given name.

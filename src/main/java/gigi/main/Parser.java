@@ -24,7 +24,7 @@ import java.util.List;
  * as well as parsing date and time inputs.
  */
  public class Parser {
-    protected static final List<DateTimeFormatter> FORMATTERS = List.of(
+    private static final List<DateTimeFormatter> FORMATTERS = List.of(
             DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm"),
             DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"),
             DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"),
@@ -37,7 +37,7 @@ import java.util.List;
             DateTimeFormatter.ofPattern("d MMMM yyyy h:mm a"),
             DateTimeFormatter.ISO_LOCAL_DATE_TIME
     );
-    protected static final List<DateTimeFormatter> DATE_FORMATTERS = List.of(
+    private static final List<DateTimeFormatter> DATE_FORMATTERS = List.of(
             DateTimeFormatter.ofPattern("MM/dd/yyyy"),
             DateTimeFormatter.ofPattern("dd/MM/yyyy"),
             DateTimeFormatter.ofPattern("yyyy-MM-dd"),

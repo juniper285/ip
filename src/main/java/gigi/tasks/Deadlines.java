@@ -9,9 +9,9 @@ import java.time.format.DateTimeFormatter;
  * the deadline of the task.
  */
 public class Deadlines extends Task {
-    protected String taskName;
-    protected boolean isComplete;
-    protected LocalDateTime deadline;
+    private String taskName;
+    private boolean isComplete;
+    private LocalDateTime deadline;
 
     /**
      * Constructs a deadline task with a given name and deadline.

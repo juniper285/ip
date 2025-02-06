@@ -8,7 +8,7 @@ import main.java.ui.Ui;
 
 public class DeleteCommand extends Command {
     public static final String COMMAND_WORD = "delete";
-    public final int taskIndex;
+    private final int taskIndex;
 
     public DeleteCommand(int i) {
         this.taskIndex = i - 1;

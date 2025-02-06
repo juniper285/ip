@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 
 public class Tasklist {
-    protected ArrayList<Task> tasks;
+    private ArrayList<Task> tasks;
 
     /**
      * Constructs an empty task list.
