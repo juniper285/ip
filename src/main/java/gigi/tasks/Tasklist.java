@@ -1,7 +1,7 @@
-package main.java.tasks;
+package gigi.tasks;
 
-import main.java.exceptions.GigiException;
-import main.java.storage.Storage;
+import gigi.exceptions.GigiException;
+import gigi.storage.Storage;
 
 import java.util.ArrayList;
 
