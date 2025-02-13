@@ -1,4 +1,4 @@
-package main.java.tasks;
+package gigi.tasks;
 
 /**
  * Represents a task in Gigi.
@@ -72,6 +72,8 @@ public class Task {
     public String toString() {
         return this.getStatusIcon() + " " + this.taskName;
     }
+
+    public String getTaskName() {return this.taskName;}
 
 }
 

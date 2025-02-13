@@ -1,16 +1,16 @@
-package main.java;
+package gigi;
 
-import main.java.commands.ByeCommand;
-import main.java.commands.Command;
-import main.java.commands.DeadlineCommand;
-import main.java.commands.DeleteCommand;
-import main.java.commands.EventCommand;
-import main.java.commands.FindCommand;
-import main.java.commands.ListCommand;
-import main.java.commands.MarkCommand;
-import main.java.commands.ToDoCommand;
-import main.java.commands.UnmarkCommand;
-import main.java.exceptions.GigiException;
+import gigi.commands.ByeCommand;
+import gigi.commands.Command;
+import gigi.commands.DeadlineCommand;
+import gigi.commands.DeleteCommand;
+import gigi.commands.EventCommand;
+import gigi.commands.FindCommand;
+import gigi.commands.ListCommand;
+import gigi.commands.MarkCommand;
+import gigi.commands.ToDoCommand;
+import gigi.commands.UnmarkCommand;
+import gigi.exceptions.GigiException;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

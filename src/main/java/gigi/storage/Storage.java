@@ -1,11 +1,11 @@
-package main.java.storage;
+package gigi.storage;
 
-import main.java.exceptions.GigiException;
-import main.java.Parser;
-import main.java.tasks.Deadlines;
-import main.java.tasks.Events;
-import main.java.tasks.Task;
-import main.java.tasks.ToDos;
+import gigi.exceptions.GigiException;
+import gigi.Parser;
+import gigi.tasks.Deadlines;
+import gigi.tasks.Events;
+import gigi.tasks.Task;
+import gigi.tasks.ToDos;
 
 import java.io.*;
 import java.util.ArrayList;

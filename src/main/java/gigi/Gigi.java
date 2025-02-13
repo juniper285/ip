@@ -1,10 +1,10 @@
-package main.java;
+package gigi;
 
-import main.java.commands.Command;
-import main.java.exceptions.GigiException;
-import main.java.storage.Storage;
-import main.java.tasks.Tasklist;
-import main.java.ui.Ui;
+import gigi.commands.Command;
+import gigi.exceptions.GigiException;
+import gigi.storage.Storage;
+import gigi.tasks.Tasklist;
+import gigi.ui.Ui;
 
 public class Gigi {
     private static final String FILE_PATH = "./data/Gigi.txt";
@@ -43,6 +43,16 @@ public class Gigi {
             } finally {
                 ui.showLine();
             }
+        }
+    }
+
+    public String getResponse(String input) {
+        try {
+            Command c = Parser.parse(input);
+            return "";
+            //return c.execute(tasks, ui, storage);
+        } catch (GigiException e) {
+            return "Error: " + e.getMessage();
         }
     }
 }

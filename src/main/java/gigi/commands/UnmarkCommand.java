@@ -1,10 +1,10 @@
-package main.java.commands;
+package gigi.commands;
 
-import main.java.exceptions.GigiException;
-import main.java.storage.Storage;
-import main.java.tasks.Task;
-import main.java.tasks.Tasklist;
-import main.java.ui.Ui;
+import gigi.exceptions.GigiException;
+import gigi.storage.Storage;
+import gigi.tasks.Task;
+import gigi.tasks.Tasklist;
+import gigi.ui.Ui;
 
 /**
  * Represents a command to unmark a task as done in the task list.
