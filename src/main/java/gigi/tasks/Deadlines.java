@@ -81,7 +81,10 @@ public class Deadlines extends Task {
      * @return A formatted string describing the deadline task.
      */
     public String toString() {
-        return super.toString() + " (by: " + deadline.format(DateTimeFormatter.ofPattern("d MMM yyyy")) + ")";
+        return super.toString()
+                + " (by: "
+                + deadline.format(DateTimeFormatter.ofPattern("d MMM yyyy"))
+                + ")";
     }
 }
 
