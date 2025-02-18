@@ -35,6 +35,8 @@ public class Gigi {
     public void run() {
         ui.showWelcome();
         boolean isExit = false;
+        ui.showLine();
+
         while (!isExit) {
             try {
                 String fullCommand = ui.readCommand();
