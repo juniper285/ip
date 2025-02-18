@@ -53,6 +53,7 @@ import java.util.List;
      * @throws GigiException If the command is invalid.
      */
     public static Command parse(String input) throws GigiException {
+        assert input != null && !input.isBlank() : "Command input should not be null or empty";
         String[] parts = input.split("\\s+", 2);
         String commandWord = parts[0];
         String details = parts.length > 1 ? parts[1] : "";

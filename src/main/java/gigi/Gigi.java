@@ -54,6 +54,8 @@ public class Gigi {
 
     public String getResponse(String input) {
         try {
+            assert input != null : "User input should never be null";
+            assert !input.trim().isEmpty() : "User input should not be empty";
             Command c = Parser.parse(input);
             return c.execute(tasks,ui,storage);
             //return c.execute(tasks, ui, storage);
