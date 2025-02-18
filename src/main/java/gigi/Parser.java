@@ -24,27 +24,6 @@ import java.util.List;
  * as well as parsing date and time inputs.
  */
  public class Parser {
-//    private static final List<DateTimeFormatter> FORMATTERS = List.of(
-//            DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm"),
-//            DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"),
-//            DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"),
-//            DateTimeFormatter.ofPattern("d MMM yyyy HH:mm"),
-//            DateTimeFormatter.ofPattern("d MMMM yyyy HH:mm"),
-//            DateTimeFormatter.ofPattern("MM/dd/yyyy h:mm a"),
-//            DateTimeFormatter.ofPattern("dd/MM/yyyy h:mm a"),
-//            DateTimeFormatter.ofPattern("yyyy-MM-dd h:mm a"),
-//            DateTimeFormatter.ofPattern("d MMM yyyy h:mm a"),
-//            DateTimeFormatter.ofPattern("d MMMM yyyy h:mm a"),
-//            DateTimeFormatter.ISO_LOCAL_DATE_TIME
-//    );
-//    private static final List<DateTimeFormatter> DATE_FORMATTERS = List.of(
-//            DateTimeFormatter.ofPattern("MM/dd/yyyy"),
-//            DateTimeFormatter.ofPattern("dd/MM/yyyy"),
-//            DateTimeFormatter.ofPattern("yyyy-MM-dd"),
-//            DateTimeFormatter.ofPattern("d MMM yyyy"),
-//            DateTimeFormatter.ofPattern("d MMMM yyyy")
-//    );
-
     /**
      * Parses user input and returns the corresponding command object.
      *
@@ -116,20 +95,5 @@ import java.util.List;
             throw new GigiException("MEOW! Invalid date format. Please use 'yyyy-MM-dd HH:mm' (e.g., 2024-02-12 14:30).");
         }
     }
-
-//        for (DateTimeFormatter formatter : FORMATTERS) {
-//            try {
-//                return LocalDateTime.parse(dateTimeString, formatter);
-//            } catch (DateTimeParseException ignored) {
-//            }
-//        }
-
-//        for (DateTimeFormatter formatter : DATE_FORMATTERS) {
-//            try {
-//                LocalDate date = LocalDate.parse(dateTimeString, formatter);
-//                return date.atStartOfDay();
-//            } catch (DateTimeParseException ignored) {
-//            }
-//        }
 
 }
