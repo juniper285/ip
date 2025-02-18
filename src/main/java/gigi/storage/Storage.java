@@ -57,11 +57,12 @@ public class Storage {
      * @return A list of tasks retrieved from the file.
      * @throws GigiException If an error occurs while reading the file.
      */
-    public ArrayList<Task> loadTasksFromFile() throws GigiException {
+    public ArrayList<Task> loadTasksFromFile() throws GigiException, IOException {
         ArrayList<Task> tasks = new ArrayList<>();
         File file = new File(filePath);
+        file.getParentFile().mkdirs(); // correct!
         if (!file.exists()) {
-            return tasks;
+            file.createNewFile();
         }
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
@@ -81,7 +82,17 @@ public class Storage {
      * @param tasks The list of tasks to be saved.
      * @throws GigiException If an error occurs while writing to the file.
      */
-    public void saveTasksToFile(ArrayList<Task> tasks) throws GigiException {
+    public void saveTasksToFile(ArrayList<Task> tasks) throws IOException, GigiException {
+        File file = new File(filePath);
+        file.getParentFile().mkdirs(); // correct!
+        if (!file.exists()) {
+            file.createNewFile();
+        }
+        if (file.mkdirs()) {
+            System.out.println("Directory is created");
+        } else {
+            System.out.println("Directory cannot be created");
+        }
         try (PrintWriter pw = new PrintWriter(new FileWriter(filePath))) {
             for (Task task : tasks) {
                 pw.println(task.convertToText());

@@ -23,24 +23,23 @@ public class Ui {
     /**
      * Displays the welcome message when the chatbot starts.
      */
-    public void showWelcome() {
+    public String showWelcome() {
         String logo = "\n" +
                 "⠀ ／|_     \n" +
                 "（ﾟ､ ｡ 7\n" +
                 "⠀ |、ﾞ~ヽ\n" +
                 "  じしf_, )ノ \n";
-        System.out.println(
+        return
                 "MEOW! \n"
                         + "I'm Gigi, the mighty demon keeping this place running. \n"
-                        + "What do you want? \n");
+                        + "What do you want? \n";
     }
 
     /**
      * Displays separator line.
      */
-    public void showLine() {
-
-        System.out.println("____________________________________________________________");
+    public String showLine() {
+        return "____________________________________________________________";
     }
 
     /**
@@ -48,8 +47,8 @@ public class Ui {
      *
      * @param message The error message to be displayed
      * */
-    public void showError(String message) {
-        System.out.println("MEOW!! " + message);
+    public String showError(String message) {
+        return "MEOW!! " + message;
     }
 
     /**
@@ -66,31 +65,33 @@ public class Ui {
      *
      * @param message The message to be displayed.
      */
-    public void showMessage(String message) {
-        System.out.println(message);
+    public String showMessage(String message) {
+        return message;
     }
 
     /**
      * Displays a message indicating a task has been added.
      */
-    public void showAddMessage() {
-        System.out.println("Meow! I've pawed this task into the list:\n");
+    public String showAddMessage() {
+        return "Meow! I've pawed this task into the list:\n";
     }
 
     /**
      * Displays a message indicating a task has been deleted.
      */
-    public void showDelMessage() {
-        System.out.println("Meow! This task never existed:\n");
+    public String showDelMessage() {
+        return "Meow! This task never existed:\n";
     }
 
     /**
      * Displays the exit message when the chatbot shuts down.
+     *
+     * @return
      */
-    public void showByeMessage() {
-        System.out.println("See ya! \n"
+    public String showByeMessage() {
+        return "See ya! \n"
                 + "Don't forget - this mighty fiery feline doesn't wait forever. \n"
-                + "Meow!");
+                + "Meow!";
     }
 
     /**
@@ -98,23 +99,22 @@ public class Ui {
      *
      * @param tasks The task list whose size is displayed.
      */
-
-    public void showTaskNumber(Tasklist tasks) {
-        System.out.printf("Now you have %d task(s) in the list.%n", tasks.getSize());
+    public String showTaskNumber(Tasklist tasks) {
+        return String.format("Now you have %d task(s) in the list.%n", tasks.getSize());
     }
 
     /**
      * Displays a message indicating a task has been marked as done.
      */
-    public void showDoneMessage() {
-        System.out.println("Meow! I've marked this task as done:\n");
+    public String showDoneMessage() {
+        return "Meow! I've marked this task as done:\n";
     }
 
     /**
      * Displays a message indicating a task has been marked as not done.
      */
-    public void showUndoneMessage() {
-        System.out.println("Meow! I've marked this task as not done:\n");
+    public String showUndoneMessage() {
+        return "Meow! I've marked this task as not done:\n";
     }
 
     /**

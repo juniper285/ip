@@ -6,6 +6,8 @@ import gigi.tasks.Task;
 import gigi.tasks.Tasklist;
 import gigi.ui.Ui;
 
+import java.io.IOException;
+
 /**
  * Represents a command to unmark a task as done in the task list.
  * This command is triggered when the user inputs "unmark" followed by a task index.
@@ -36,7 +38,7 @@ public class UnmarkCommand extends Command {
      * @throws GigiException If the task index is out of bounds.
      */
     @Override
-    public void execute(Tasklist tasks, Ui ui, Storage storage) throws GigiException {
+    public String execute(Tasklist tasks, Ui ui, Storage storage) throws GigiException, IOException {
         if (taskIndex < 0 || taskIndex >= tasks.getSize()) {
             throw new GigiException("MEOW! You don't have that many tasks.");
         }
@@ -45,9 +47,9 @@ public class UnmarkCommand extends Command {
         tasks.markTaskAsUndone(taskIndex);
         tasks.saveTasks(storage);
 
-        ui.showUndoneMessage();
-        ui.showMessage(unmarkedTask.toString());
-        ui.showTaskNumber(tasks);
+        return ui.showUndoneMessage() + "\n" +
+                ui.showMessage(unmarkedTask.toString()) + "\n" +
+                ui.showTaskNumber(tasks);
     }
 }
 

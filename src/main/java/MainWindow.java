@@ -31,15 +31,15 @@ public class MainWindow extends AnchorPane {
     /** Injects the Gigi instance */
     public void setGigi(Gigi g) {
         gigi = g;
-//        showWelcome();
+        showWelcome();
     }
 
-//    private void showWelcome() {
-//        String welcome = gigi.getWelcome();
-//        dialogContainer.getChildren().add(
-//                DialogBox.getGigiDialog(welcome, gigiImage)
-//        );
-//    }
+    private void showWelcome() {
+        String welcome = gigi.getWelcome();
+        dialogContainer.getChildren().add(
+                DialogBox.getGigiDialog(welcome, gigiImage)
+        );
+    }
 
     /**
      * Creates two dialog boxes, one echoing user input and the other containing Gigi's reply and

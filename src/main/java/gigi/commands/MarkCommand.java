@@ -6,6 +6,8 @@ import gigi.tasks.Task;
 import gigi.tasks.Tasklist;
 import gigi.ui.Ui;
 
+import java.io.IOException;
+
 /**
  * Represents a command to mark a task as done in the task list.
  * This command is triggered when the user inputs "mark" followed by a task index.
@@ -35,7 +37,7 @@ public class MarkCommand extends Command {
      * @throws GigiException If the task index is out of bounds.
      */
     @Override
-    public void execute(Tasklist tasks, Ui ui, Storage storage) throws GigiException {
+    public String execute(Tasklist tasks, Ui ui, Storage storage) throws GigiException, IOException {
         if (taskIndex < 0 || taskIndex >= tasks.getSize()) {
             throw new GigiException("MEOW! You don't have that many tasks.");
         }
@@ -44,9 +46,9 @@ public class MarkCommand extends Command {
         tasks.markTaskAsDone(taskIndex);
         tasks.saveTasks(storage);
 
-        ui.showDoneMessage();
-        ui.showMessage(markedTask.toString());
-        ui.showTaskNumber(tasks);
+        return ui.showDoneMessage() + "\n" +
+                ui.showMessage(markedTask.toString()) + "\n" +
+                ui.showTaskNumber(tasks);
     }
 }
 

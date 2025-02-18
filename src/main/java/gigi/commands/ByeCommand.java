@@ -5,6 +5,8 @@ import gigi.ui.Ui;
 import gigi.storage.Storage;
 import gigi.exceptions.GigiException;
 
+import java.io.IOException;
+
 /**
  * Represents a command to exit the Gigi chatbot.
  * This command is triggered when the user inputs "bye".
@@ -28,8 +30,8 @@ public class ByeCommand extends Command {
      * @throws GigiException If an error occurs while saving tasks.
      */
     @Override
-    public void execute(Tasklist tasks, Ui ui, Storage storage) throws GigiException {
+    public String execute(Tasklist tasks, Ui ui, Storage storage) throws GigiException, IOException {
         tasks.saveTasks(storage);
-        ui.showByeMessage();
+        return ui.showByeMessage();
     }
 }

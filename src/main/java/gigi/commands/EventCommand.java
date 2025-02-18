@@ -6,6 +6,7 @@ import gigi.tasks.Events;
 import gigi.tasks.Tasklist;
 import gigi.ui.Ui;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 
 public class EventCommand extends Command {
@@ -21,14 +22,14 @@ public class EventCommand extends Command {
     }
 
     @Override
-    public void execute(Tasklist tasks, Ui ui, Storage storage) throws GigiException {
+    public String execute(Tasklist tasks, Ui ui, Storage storage) throws GigiException, IOException {
         Events event = new Events(description, startTime, endTime);
         tasks.addTask(event);
 
         tasks.saveTasks(storage);
 
-        ui.showAddMessage();
-        ui.showMessage(String.valueOf(event));
-        ui.showTaskNumber(tasks);
+        return ui.showAddMessage() + "\n" +
+                ui.showMessage(String.valueOf(event)) + "\n" +
+                ui.showTaskNumber(tasks);
     }
 }

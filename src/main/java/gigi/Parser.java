@@ -24,26 +24,26 @@ import java.util.List;
  * as well as parsing date and time inputs.
  */
  public class Parser {
-    private static final List<DateTimeFormatter> FORMATTERS = List.of(
-            DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm"),
-            DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"),
-            DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"),
-            DateTimeFormatter.ofPattern("d MMM yyyy HH:mm"),
-            DateTimeFormatter.ofPattern("d MMMM yyyy HH:mm"),
-            DateTimeFormatter.ofPattern("MM/dd/yyyy h:mm a"),
-            DateTimeFormatter.ofPattern("dd/MM/yyyy h:mm a"),
-            DateTimeFormatter.ofPattern("yyyy-MM-dd h:mm a"),
-            DateTimeFormatter.ofPattern("d MMM yyyy h:mm a"),
-            DateTimeFormatter.ofPattern("d MMMM yyyy h:mm a"),
-            DateTimeFormatter.ISO_LOCAL_DATE_TIME
-    );
-    private static final List<DateTimeFormatter> DATE_FORMATTERS = List.of(
-            DateTimeFormatter.ofPattern("MM/dd/yyyy"),
-            DateTimeFormatter.ofPattern("dd/MM/yyyy"),
-            DateTimeFormatter.ofPattern("yyyy-MM-dd"),
-            DateTimeFormatter.ofPattern("d MMM yyyy"),
-            DateTimeFormatter.ofPattern("d MMMM yyyy")
-    );
+//    private static final List<DateTimeFormatter> FORMATTERS = List.of(
+//            DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm"),
+//            DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"),
+//            DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"),
+//            DateTimeFormatter.ofPattern("d MMM yyyy HH:mm"),
+//            DateTimeFormatter.ofPattern("d MMMM yyyy HH:mm"),
+//            DateTimeFormatter.ofPattern("MM/dd/yyyy h:mm a"),
+//            DateTimeFormatter.ofPattern("dd/MM/yyyy h:mm a"),
+//            DateTimeFormatter.ofPattern("yyyy-MM-dd h:mm a"),
+//            DateTimeFormatter.ofPattern("d MMM yyyy h:mm a"),
+//            DateTimeFormatter.ofPattern("d MMMM yyyy h:mm a"),
+//            DateTimeFormatter.ISO_LOCAL_DATE_TIME
+//    );
+//    private static final List<DateTimeFormatter> DATE_FORMATTERS = List.of(
+//            DateTimeFormatter.ofPattern("MM/dd/yyyy"),
+//            DateTimeFormatter.ofPattern("dd/MM/yyyy"),
+//            DateTimeFormatter.ofPattern("yyyy-MM-dd"),
+//            DateTimeFormatter.ofPattern("d MMM yyyy"),
+//            DateTimeFormatter.ofPattern("d MMMM yyyy")
+//    );
 
     /**
      * Parses user input and returns the corresponding command object.
@@ -89,9 +89,10 @@ import java.util.List;
     }
 
     private static Command startEvent(String details) throws GigiException {
-        String[] eventDetails = details.split(" /from | /by ", 3);
+        String[] eventDetails = details.split(" /from | /to ", 3);
         if (eventDetails.length < 3) {
-            throw new GigiException("MEOW! Events must have a description, '/from' date, and '/by' deadline.");
+            throw new GigiException("MEOW! Events must have a description, '/from' date, and " +
+                    "'/to' deadline.");
         }
         return new EventCommand(eventDetails[0], parseDateTime(eventDetails[1]), parseDateTime(eventDetails[2]));
     }
@@ -106,23 +107,28 @@ import java.util.List;
 
     public static LocalDateTime parseDateTime(String dateTimeString) throws GigiException {
         dateTimeString = dateTimeString.trim();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
-        for (DateTimeFormatter formatter : FORMATTERS) {
-            try {
-                return LocalDateTime.parse(dateTimeString, formatter);
-            } catch (DateTimeParseException ignored) {
-            }
+        try {
+            return LocalDateTime.parse(dateTimeString, formatter);
+        } catch (DateTimeParseException e) {
+            throw new GigiException("MEOW! Invalid date format. Please use 'yyyy-MM-dd HH:mm' (e.g., 2024-02-12 14:30).");
         }
-
-        for (DateTimeFormatter formatter : DATE_FORMATTERS) {
-            try {
-                LocalDate date = LocalDate.parse(dateTimeString, formatter);
-                return date.atStartOfDay();
-            } catch (DateTimeParseException ignored) {
-            }
-        }
-
-        throw new GigiException("MEOW! Invalid date format.");
     }
+
+//        for (DateTimeFormatter formatter : FORMATTERS) {
+//            try {
+//                return LocalDateTime.parse(dateTimeString, formatter);
+//            } catch (DateTimeParseException ignored) {
+//            }
+//        }
+
+//        for (DateTimeFormatter formatter : DATE_FORMATTERS) {
+//            try {
+//                LocalDate date = LocalDate.parse(dateTimeString, formatter);
+//                return date.atStartOfDay();
+//            } catch (DateTimeParseException ignored) {
+//            }
+//        }
 
 }

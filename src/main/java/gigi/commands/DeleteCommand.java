@@ -6,6 +6,8 @@ import gigi.tasks.Task;
 import gigi.tasks.Tasklist;
 import gigi.ui.Ui;
 
+import java.io.IOException;
+
 public class DeleteCommand extends Command {
     public static final String COMMAND_WORD = "delete";
     private final int taskIndex;
@@ -15,7 +17,7 @@ public class DeleteCommand extends Command {
     }
 
     @Override
-    public void execute(Tasklist tasks, Ui ui, Storage storage) throws GigiException {
+    public String execute(Tasklist tasks, Ui ui, Storage storage) throws GigiException, IOException {
         if (taskIndex < 0 || taskIndex >= tasks.getSize()) {
             throw new GigiException("MEOW! You don't have that many tasks.");
         }
@@ -24,8 +26,8 @@ public class DeleteCommand extends Command {
         tasks.deleteTask(taskIndex);
         tasks.saveTasks(storage);
 
-        ui.showDelMessage();
-        ui.showMessage(removedTask.toString());
-        ui.showTaskNumber(tasks);
+        return ui.showDelMessage() + "\n" +
+                ui.showMessage(removedTask.toString())+ "\n" +
+                ui.showTaskNumber(tasks);
     }
 }

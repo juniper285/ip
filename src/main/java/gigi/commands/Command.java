@@ -5,6 +5,8 @@ import gigi.storage.Storage;
 import gigi.tasks.Tasklist;
 import gigi.ui.Ui;
 
+import java.io.IOException;
+
 /**
  * Represents an abstract command in the Gigi chatbot.
  * All specific command types (e.g., adding, deleting, marking tasks) extend this class.
@@ -20,7 +22,7 @@ public abstract class Command {
      * @param storage The storage instance for saving tasks.
      * @throws GigiException If an error occurs during command execution.
      */
-    public abstract void execute(Tasklist tasks, Ui ui, Storage storage) throws GigiException;
+    public abstract String execute(Tasklist tasks, Ui ui, Storage storage) throws GigiException, IOException;
 
     public boolean isExit() {
         return false;

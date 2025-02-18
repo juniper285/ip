@@ -14,19 +14,21 @@ public class FindCommand extends Command {
     }
 
     @Override
-    public void execute(Tasklist tasks, Ui ui, Storage storage) throws GigiException {
+    public String execute(Tasklist tasks, Ui ui, Storage storage) throws GigiException {
         Tasklist matchingTasks = new Tasklist();
         matchingTasks = tasks.getMatchingTasks(this.keyword);
         matchingTasks.getTaskList();
 
         if (matchingTasks.isEmpty()) {
-            ui.showMessage("MEOW!!! There are no matching tasks.");
+            return ui.showMessage("MEOW!!! There are no matching tasks.");
         } else {
-            ui.showMessage("These are the matching tasks:");
+            //ui.showMessage("These are the matching tasks:");
             for (String task : tasks.getTaskList()) {
-                ui.showMessage(task);
+                return ui.showMessage(task);
             }
         }
+
+        return "";
     }
 }
 

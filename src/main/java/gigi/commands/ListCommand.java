@@ -11,15 +11,15 @@ public class ListCommand extends Command {
     public ListCommand() {}
 
     @Override
-    public void execute(Tasklist tasks, Ui ui, Storage storage) throws GigiException {
+    public String execute(Tasklist tasks, Ui ui, Storage storage) throws GigiException {
         if (tasks.isEmpty()) {
-            ui.showMessage("MEOW!!! You have nothing to do.");
+            return ui.showMessage("MEOW!!! You have nothing to do.");
         } else {
-            ui.showMessage("Don't forget what you have to do:");
+            //ui.showMessage("Don't forget what you have to do:");
             for (String task : tasks.getTaskList()) {
-                ui.showMessage(task);
+                return ui.showMessage(task);
             }
         }
-        ui.showTaskNumber(tasks);
+        return ui.showTaskNumber(tasks);
     }
 }

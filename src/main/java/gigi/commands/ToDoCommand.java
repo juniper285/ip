@@ -6,6 +6,8 @@ import gigi.tasks.Tasklist;
 import gigi.tasks.ToDos;
 import gigi.ui.Ui;
 
+import java.io.IOException;
+
 /**
  * Represents a command to add a ToDo task to the task list.
  * This command is triggered when the user inputs "todo" followed by a task description.
@@ -30,7 +32,7 @@ public class ToDoCommand extends Command {
      * @throws GigiException If the task description is empty.
      */
     @Override
-    public void execute(Tasklist tasks, Ui ui, Storage storage) throws GigiException {
+    public String execute(Tasklist tasks, Ui ui, Storage storage) throws GigiException, IOException {
         if (description.isBlank()) {
             throw new GigiException("MEOW! A ToDo task cannot be empty.");
         }
@@ -39,8 +41,8 @@ public class ToDoCommand extends Command {
 
         tasks.saveTasks(storage);
 
-        ui.showAddMessage();
-        ui.showMessage(String.valueOf(todo));
-        ui.showTaskNumber(tasks);
+        return ui.showAddMessage()  + "\n" +
+                ui.showMessage(String.valueOf(todo)) + "\n" +
+                ui.showTaskNumber(tasks);
     }
 }

@@ -3,6 +3,7 @@ package gigi.tasks;
 import gigi.exceptions.GigiException;
 import gigi.storage.Storage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -70,7 +71,7 @@ public class Tasklist {
      * @param storage The storage component responsible for saving tasks.
      * @throws GigiException If an error occurs while saving tasks.
      */
-    public void saveTasks(Storage storage) throws GigiException {
+    public void saveTasks(Storage storage) throws GigiException, IOException {
         storage.saveTasksToFile(tasks);
     }
 
@@ -80,7 +81,7 @@ public class Tasklist {
      * @param storage The storage component responsible for loading tasks.
      * @throws GigiException If an error occurs while loading tasks.
      */
-    public void getTasks(Storage storage) throws GigiException {
+    public void getTasks(Storage storage) throws GigiException, IOException {
         storage.loadTasksFromFile();
     }
 

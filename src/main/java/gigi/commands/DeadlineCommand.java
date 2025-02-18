@@ -6,6 +6,7 @@ import gigi.tasks.Deadlines;
 import gigi.tasks.Tasklist;
 import gigi.ui.Ui;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 
 /**
@@ -39,14 +40,14 @@ public class DeadlineCommand extends Command {
      * @throws GigiException If an error occurs while saving tasks.
      */
     @Override
-    public void execute(Tasklist tasks, Ui ui, Storage storage) throws GigiException {
+    public String execute(Tasklist tasks, Ui ui, Storage storage) throws GigiException, IOException {
         Deadlines deadline = new Deadlines(description, deadlineDate);
         tasks.addTask(deadline);
 
         tasks.saveTasks(storage);
 
-        ui.showAddMessage();
-        ui.showMessage(String.valueOf(deadline));
-        ui.showTaskNumber(tasks);
+        return ui.showAddMessage() + "\n" +
+                ui.showMessage(String.valueOf(deadline)) + "\n" +
+                ui.showTaskNumber(tasks);
     }
 }
