@@ -1,12 +1,12 @@
 package gigi.commands;
 
+import java.io.IOException;
+
 import gigi.exceptions.GigiException;
 import gigi.storage.Storage;
 import gigi.tasks.Task;
 import gigi.tasks.Tasklist;
 import gigi.ui.Ui;
-
-import java.io.IOException;
 
 /**
  * Represents a command to unmark a task as done in the task list.
@@ -47,9 +47,9 @@ public class UnmarkCommand extends Command {
         tasks.markTaskAsUndone(taskIndex);
         tasks.saveTasks(storage);
 
-        return ui.showUndoneMessage() + "\n" +
-                ui.showMessage(unmarkedTask.toString()) + "\n" +
-                ui.showTaskNumber(tasks);
+        return ui.showUndoneMessage() + "\n"
+                + ui.showMessage(unmarkedTask.toString()) + "\n"
+                + ui.showTaskNumber(tasks);
     }
 }
 

@@ -8,14 +8,21 @@ import java.time.format.DateTimeFormatter;
  * This class extends {@code Task} and includes an additional attribute to store
  * the deadline of the task.
  */
+@SuppressWarnings("checkstyle:Regexp")
 public class Deadlines extends Task {
+    public static final String ICON_DEADLINE = "[D]";
+    private static final DateTimeFormatter dateTimeFormatter =
+            DateTimeFormatter.ofPattern("d MMM yyyy,"
+                    + " "
+                    + "h:mma");
+
     private String taskName;
     private boolean isComplete;
     private LocalDateTime deadline;
 
+
     /**
      * Constructs a deadline task with a given name and deadline.
-     *
      * @param taskName The name of the deadline task.
      * @param deadline The due date and time of the task.
      */
@@ -44,7 +51,11 @@ public class Deadlines extends Task {
      * @return A formatted status string with "[D]" indicating a deadline.
      */
     public String getStatusIcon() {
-        return "[D]" + super.getStatusIcon(); // mark done task with X
+        return ICON_DEADLINE + super.getStatusIcon(); // mark done task with X
+    }
+
+    public boolean isComplete() {
+        return super.isComplete();
     }
 
     /**
@@ -71,8 +82,8 @@ public class Deadlines extends Task {
      * @return A string representation of the deadline task for saving.
      */
     public String convertToText() {
-        return "D | " + super.convertToText() + " | "
-                + this.deadline.format(DateTimeFormatter.ofPattern("d MMM yyyy"));
+        String formattedDeadline = this.deadline.format(dateTimeFormatter);
+        return ICON_DEADLINE + " | " + super.convertToText() + " | " + formattedDeadline;
     }
 
     /**
@@ -83,7 +94,7 @@ public class Deadlines extends Task {
     public String toString() {
         return super.toString()
                 + " (by: "
-                + deadline.format(DateTimeFormatter.ofPattern("d MMM yyyy"))
+                + this.deadline.format(dateTimeFormatter)
                 + ")";
     }
 }

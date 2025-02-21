@@ -1,10 +1,12 @@
 package gigi.tasks;
 
-import gigi.exceptions.GigiException;
-import gigi.storage.Storage;
-
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Iterator;
+
+import gigi.exceptions.GigiException;
+import gigi.storage.Storage;
 
 /**
  * Represents a task list in the Gigi chatbot.
@@ -12,7 +14,7 @@ import java.util.ArrayList;
  * retrieve, and modify tasks.
  */
 
-public class Tasklist {
+public class Tasklist implements Iterable<Task> {
     private ArrayList<Task> tasks;
 
     /**
@@ -29,6 +31,14 @@ public class Tasklist {
      */
     public Tasklist(ArrayList<Task> allTasks) {
         this.tasks = allTasks;
+    }
+
+    /**
+     * Allows for-each iteration
+     */
+    @Override
+    public Iterator<Task> iterator() {
+        return tasks.iterator();
     }
 
     /**
@@ -81,8 +91,8 @@ public class Tasklist {
      * @param storage The storage component responsible for loading tasks.
      * @throws GigiException If an error occurs while loading tasks.
      */
-    public void getTasks(Storage storage) throws GigiException, IOException {
-        storage.loadTasksFromFile();
+    public Tasklist getTasks(Storage storage) throws GigiException, IOException {
+        return storage.loadTasksFromFile();
     }
 
     /**
@@ -140,6 +150,24 @@ public class Tasklist {
             }
         }
         return result;
+    }
+
+    /**
+     * Sorts tasks by type (ToDos → Deadlines → Events) and alphabetically within each type.
+     */
+    public void sortByType() {
+        tasks.sort(Comparator
+                .comparing((Task task) -> {
+                    if (task instanceof Deadlines) {
+                        return 1;
+                    }
+                    if (task instanceof Events) {
+                        return 2;
+                    }
+                    return 0;
+                })
+                .thenComparing(task -> ((Task) task).getTaskName().toLowerCase()) //
+        );
     }
 
 }

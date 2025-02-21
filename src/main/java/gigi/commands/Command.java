@@ -1,11 +1,11 @@
 package gigi.commands;
 
+import java.io.IOException;
+
 import gigi.exceptions.GigiException;
 import gigi.storage.Storage;
 import gigi.tasks.Tasklist;
 import gigi.ui.Ui;
-
-import java.io.IOException;
 
 /**
  * Represents an abstract command in the Gigi chatbot.

@@ -100,7 +100,7 @@ public class Ui {
      * @param tasks The task list whose size is displayed.
      */
     public String showTaskNumber(Tasklist tasks) {
-        return String.format("Now you have %d task(s) in the list.%n", tasks.getSize());
+        return String.format("Now you have %d task(s).%n", tasks.getSize());
     }
 
     /**

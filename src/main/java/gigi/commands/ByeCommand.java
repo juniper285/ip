@@ -1,11 +1,11 @@
 package gigi.commands;
 
+import java.io.IOException;
+
+import gigi.exceptions.GigiException;
+import gigi.storage.Storage;
 import gigi.tasks.Tasklist;
 import gigi.ui.Ui;
-import gigi.storage.Storage;
-import gigi.exceptions.GigiException;
-
-import java.io.IOException;
 
 /**
  * Represents a command to exit the Gigi chatbot.

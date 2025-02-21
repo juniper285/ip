@@ -11,12 +11,16 @@ import java.time.format.DateTimeFormatter;
  * An event task requires a {@code taskName}, {@code startTime}, and {@code endTime}.
  * */
 
-public class Events extends Task{
+@SuppressWarnings("checkstyle:Regexp")
+public class Events extends Task {
+    public static final String ICON_EVENT = "[E]";
+    private static final DateTimeFormatter dateTimeFormatter =
+            DateTimeFormatter.ofPattern("d MMM yyyy," + " " + "h:mma");
     private String taskName;
     private boolean isComplete;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    public static String iconEvent = "[E]";
+
 
     /**
      * Constructs an event task with a given name, start time, and end time.
@@ -56,23 +60,12 @@ public class Events extends Task{
     }
 
     /**
-     * Constructs an event task with only a task name.
-     * Note: This constructor does not initialize start or end times.
-     *
-     * @param taskName The name of the event task.
-     */
-    public Events(String taskName) {
-        super(taskName);
-    }
-
-    /**
      * Returns the status icon for an event task.
      *
      * @return A formatted status string with "[E]" indicating an event.
      */
     public String getStatusIcon() {
-
-        return "[E]" + super.getStatusIcon();
+        return ICON_EVENT + super.getStatusIcon();
     }
 
     /**
@@ -99,9 +92,9 @@ public class Events extends Task{
      * @return A string representation of the event task for saving.
      */
     public String convertToText() {
-        return "E | " + super.convertToText() + " | "
-                + this.startTime.format(DateTimeFormatter.ofPattern("d MMM yyyy")) + " | "
-                + this.endTime.format(DateTimeFormatter.ofPattern("d MMM yyyy"));
+        String formattedStart = this.startTime.format(dateTimeFormatter);
+        String formattedEnd = this.endTime.format(dateTimeFormatter);
+        return ICON_EVENT + " | " + super.convertToText() + " | " + formattedStart + " | " + formattedEnd;
     }
 
     /**
@@ -111,7 +104,11 @@ public class Events extends Task{
      */
     @Override
     public String toString() {
-        return super.toString() + " (from: " + this.startTime.toString() + " to: " + this.endTime + ")";
+        return super.toString() + " (from: " + this.startTime.format(dateTimeFormatter) + " to: " + this.endTime.format(dateTimeFormatter) + ")";
+    }
+
+    public boolean isComplete() {
+        return super.isComplete();
     }
 }
 

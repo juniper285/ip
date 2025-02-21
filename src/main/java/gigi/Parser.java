@@ -1,5 +1,9 @@
 package gigi;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+
 import gigi.commands.ByeCommand;
 import gigi.commands.Command;
 import gigi.commands.DeadlineCommand;
@@ -12,18 +16,12 @@ import gigi.commands.ToDoCommand;
 import gigi.commands.UnmarkCommand;
 import gigi.exceptions.GigiException;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
-import java.util.List;
-
 /**
  * Parses user input and converts it into corresponding command objects.
  * This class handles extracting command words and arguments,
  * as well as parsing date and time inputs.
  */
- public class Parser {
+public class Parser {
     /**
      * Parses user input and returns the corresponding command object.
      *
@@ -38,18 +36,24 @@ import java.util.List;
         String details = parts.length > 1 ? parts[1] : "";
 
         return switch (commandWord) {
-            case ToDoCommand.COMMAND_WORD -> startToDo(details);
-            case DeadlineCommand.COMMAND_WORD -> startDeadline(details);
-            case EventCommand.COMMAND_WORD -> startEvent(details);
-            case DeleteCommand.COMMAND_WORD -> startDelete(details);
-            //case ClearCommand.COMMAND_WORD -> new ClearCommand();
-            case ByeCommand.COMMAND_WORD -> new ByeCommand();
-            case ListCommand.COMMAND_WORD -> new ListCommand();
-            case FindCommand.COMMAND_WORD -> new FindCommand(details);
-            case MarkCommand.COMMAND_WORD -> new MarkCommand(Integer.parseInt(details));
-            case UnmarkCommand.COMMAND_WORD -> new UnmarkCommand(Integer.parseInt(details));
-            //case HelpCommand.COMMAND_WORD -> new HelpCommand();
-            default -> throw new GigiException("MEOW! Invalid command. What do you mean?");   //new HelpCommand();
+        case ToDoCommand.COMMAND_WORD -> startToDo(details);
+        case DeadlineCommand.COMMAND_WORD -> startDeadline(details);
+        case EventCommand.COMMAND_WORD -> startEvent(details);
+        case DeleteCommand.COMMAND_WORD -> startDelete(details);
+        //case ClearCommand.COMMAND_WORD -> new ClearCommand();
+        case ByeCommand.COMMAND_WORD -> new ByeCommand();
+        case ListCommand.COMMAND_WORD -> new ListCommand();
+        case FindCommand.COMMAND_WORD -> new FindCommand(details);
+        case MarkCommand.COMMAND_WORD -> {
+            try {
+                yield new MarkCommand(Integer.parseInt(details));
+            } catch (NumberFormatException e) {
+                throw new GigiException("MEOW! Please provide a valid task number to mark.");
+            }
+        }
+        case UnmarkCommand.COMMAND_WORD -> new UnmarkCommand(Integer.parseInt(details));
+        //case HelpCommand.COMMAND_WORD -> new HelpCommand();
+        default -> throw new GigiException("MEOW! Invalid command. What do you mean?");
         };
     }
 
@@ -71,20 +75,27 @@ import java.util.List;
     private static Command startEvent(String details) throws GigiException {
         String[] eventDetails = details.split(" /from | /to ", 3);
         if (eventDetails.length < 3) {
-            throw new GigiException("MEOW! Events must have a description, '/from' date, and " +
-                    "'/to' deadline.");
+            throw new GigiException("MEOW! Events must have a description, '/from' date, and '/to' deadline.");
         }
         return new EventCommand(eventDetails[0], parseDateTime(eventDetails[1]), parseDateTime(eventDetails[2]));
     }
 
+    @SuppressWarnings("checkstyle:Indentation")
     private static Command startDelete(String details) throws GigiException {
         try {
             return new DeleteCommand(Integer.parseInt(details));
         } catch (NumberFormatException e) {
-                throw new GigiException("MEOW! Please provide a valid task number to delete.");
-            }
+            throw new GigiException("MEOW! Please provide a valid task number to delete.");
+        }
     }
 
+    /**
+     * Parses a date-time string into a {@code LocalDateTime} object.
+     *
+     * @param dateTimeString The date-time string to be parsed.
+     * @return A {@code LocalDateTime} object representing the parsed date and time.
+     * @throws GigiException If the date format is incorrect.
+     */
     public static LocalDateTime parseDateTime(String dateTimeString) throws GigiException {
         dateTimeString = dateTimeString.trim();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
@@ -92,7 +103,8 @@ import java.util.List;
         try {
             return LocalDateTime.parse(dateTimeString, formatter);
         } catch (DateTimeParseException e) {
-            throw new GigiException("MEOW! Invalid date format. Please use 'yyyy-MM-dd HH:mm' (e.g., 2024-02-12 14:30).");
+            throw new GigiException("MEOW! Invalid date format. "
+                    + "Please use 'yyyy-MM-dd HH:mm' (e.g., 2024-02-12 14:30).");
         }
     }
 

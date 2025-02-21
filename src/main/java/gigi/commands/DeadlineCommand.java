@@ -1,13 +1,13 @@
 package gigi.commands;
 
+import java.io.IOException;
+import java.time.LocalDateTime;
+
 import gigi.exceptions.GigiException;
 import gigi.storage.Storage;
 import gigi.tasks.Deadlines;
 import gigi.tasks.Tasklist;
 import gigi.ui.Ui;
-
-import java.io.IOException;
-import java.time.LocalDateTime;
 
 /**
  * Represents a command to add a Deadline task to the task list.
@@ -46,8 +46,8 @@ public class DeadlineCommand extends Command {
 
         tasks.saveTasks(storage);
 
-        return ui.showAddMessage() + "\n" +
-                ui.showMessage(String.valueOf(deadline)) + "\n" +
-                ui.showTaskNumber(tasks);
+        return ui.showAddMessage() + "\n"
+                + ui.showMessage(String.valueOf(deadline)) + "\n"
+                + ui.showTaskNumber(tasks);
     }
 }

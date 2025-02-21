@@ -73,7 +73,12 @@ public class Task {
         return this.getStatusIcon() + " " + this.taskName;
     }
 
-    public String getTaskName() {return this.taskName;}
+    public String getTaskName() {
+        return this.taskName;
+    }
 
+    public boolean isComplete() {
+        return isComplete;
+    }
 }
 

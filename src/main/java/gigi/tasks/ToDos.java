@@ -5,7 +5,9 @@ package gigi.tasks;
  * This class extends {@code Task} and represents a simple task
  * without any associated date or time.
  */
+@SuppressWarnings("checkstyle:Regexp")
 public class ToDos extends Task {
+    public static final String ICON_TODO = "[T]";
     private String taskName;
     private boolean isComplete;
 
@@ -37,7 +39,7 @@ public class ToDos extends Task {
      */
     @Override
     public String getStatusIcon() {
-        return "[T]" + super.getStatusIcon(); // mark done task with X
+        return ICON_TODO + super.getStatusIcon();
     }
 
     /**
@@ -65,7 +67,7 @@ public class ToDos extends Task {
      * @return A string representation of the ToDo task for saving.
      */
     public String convertToText() {
-        return "T" + " | " + super.convertToText();
+        return ICON_TODO + " | " + super.convertToText();
     }
 
     /**
@@ -75,6 +77,10 @@ public class ToDos extends Task {
      */
     public String toString() {
         return super.toString();
+    }
+
+    public boolean isComplete() {
+        return super.isComplete();
     }
 
 }

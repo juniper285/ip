@@ -1,12 +1,12 @@
 package gigi.commands;
 
+import java.io.IOException;
+
 import gigi.exceptions.GigiException;
 import gigi.storage.Storage;
 import gigi.tasks.Tasklist;
 import gigi.tasks.ToDos;
 import gigi.ui.Ui;
-
-import java.io.IOException;
 
 /**
  * Represents a command to add a ToDo task to the task list.
@@ -41,8 +41,8 @@ public class ToDoCommand extends Command {
 
         tasks.saveTasks(storage);
 
-        return ui.showAddMessage()  + "\n" +
-                ui.showMessage(String.valueOf(todo)) + "\n" +
-                ui.showTaskNumber(tasks);
+        return ui.showAddMessage() + "\n"
+                + ui.showMessage(String.valueOf(todo)) + "\n"
+                + ui.showTaskNumber(tasks);
     }
 }

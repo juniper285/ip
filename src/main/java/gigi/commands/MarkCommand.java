@@ -1,12 +1,12 @@
 package gigi.commands;
 
+import java.io.IOException;
+
 import gigi.exceptions.GigiException;
 import gigi.storage.Storage;
 import gigi.tasks.Task;
 import gigi.tasks.Tasklist;
 import gigi.ui.Ui;
-
-import java.io.IOException;
 
 /**
  * Represents a command to mark a task as done in the task list.
@@ -46,9 +46,9 @@ public class MarkCommand extends Command {
         tasks.markTaskAsDone(taskIndex);
         tasks.saveTasks(storage);
 
-        return ui.showDoneMessage() + "\n" +
-                ui.showMessage(markedTask.toString()) + "\n" +
-                ui.showTaskNumber(tasks);
+        return ui.showDoneMessage() + "\n"
+                + ui.showMessage(markedTask.toString()) + "\n"
+                + ui.showTaskNumber(tasks);
     }
 }
 
