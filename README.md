@@ -1,26 +1,77 @@
-# Duke project template
+# Gigi Chatbot - User Guide
 
-This is a project template for a greenfield Java project. It's named after the Java mascot _Duke_. Given below are instructions on how to use it.
+Gigi is a command-line-based chatbot designed to help users manage their tasks efficiently. It allows users to add, list, delete, mark, and find tasks using a simple text-based interface. Gigi stores tasks persistently, ensuring that your tasks are saved and accessible even after restarting the application.
 
-## Setting up in Intellij
 
+## Quick Start
 Prerequisites: JDK 17, update Intellij to the most recent version.
 
-1. Open Intellij (if you are not in the welcome screen, click `File` > `Close Project` to close the existing project first)
-1. Open the project into Intellij as follows:
-   1. Click `Open`.
-   1. Select the project directory, and click `OK`.
-   1. If there are any further prompts, accept the defaults.
-1. Configure the project to use **JDK 17** (not other versions) as explained in [here](https://www.jetbrains.com/help/idea/sdk.html#set-up-jdk).<br>
-   In the same dialog, set the **Project language level** field to the `SDK default` option.
-1. After that, locate the `src/java/java/Duke.java` file, right-click it, and choose `Run Duke.java()` (if the code editor is showing compile errors, try restarting the IDE). If the setup is correct, you should see something like the below as the output:
-   ```
-   Hello from
-    ____        _        
-   |  _ \ _   _| | _____ 
-   | | | | | | | |/ / _ \
-   | |_| | |_| |   <  __/
-   |____/ \__,_|_|\_\___|
-   ```
+1. Ensure you have Java 17 or above installed on your computer.
+2. Download the latest Gigi.jar file from the official repository.
+3. Copy the file to the folder where you want to store your tasks.
+4. Open a terminal or command prompt, navigate to the folder, and run the application using:
+     java -jar Gigi.jar
+6. Gigi will greet you with a welcome message. Start entering commands to manage your tasks!
 
-**Warning:** Keep the `src\java\java` folder as the root folder for Java files (i.e., don't rename those folders or move Java files to another folder outside of this folder path), as this is the default location some tools (e.g., Gradle) expect to find Java files.
+## Features
+1. Adding a ToDo Task: todo
+
+Adds a new ToDo task to the task list.
+
+Format: todo TASK_DESCRIPTION
+Example: todo Buy groceries
+
+2. Adding a Deadline Task: deadline
+
+Adds a new Deadline task with a specified due date.
+
+Format: deadline TASK_DESCRIPTION /by YYYY-MM-DD HH:mm
+Example: deadline Submit report /by 2024-02-28 23:59
+
+3. Adding an Event Task: event
+
+Adds a new Event task with a specified start and end time.
+
+Format: event TASK_DESCRIPTION /from YYYY-MM-DD HH:mm /to YYYY-MM-DD HH:mm
+Example: event Project meeting /from 2024-03-01 14:00 /to 2024-03-01 16:00
+
+4. Listing All Tasks: list
+
+Displays all tasks currently in the task list.
+
+5. Marking a Task as Done: mark
+
+Marks a specific task as completed.
+
+Format: mark INDEX
+Example: mark 2
+
+6. Unmarking a Task: unmark
+
+Marks a specific task as not done.
+
+Format: unmark INDEX
+Example: unmark 2
+
+7. Finding a Task: find
+
+Finds and displays tasks containing a specific keyword.
+
+Format: find KEYWORD
+Example: find report
+
+8. Deleting a Task: delete
+
+Deletes a specific task from the task list.
+
+Format: delete INDEX
+Example: delete 3
+
+9. Exiting Gigi: bye
+
+Saves the current task list and exits the application.
+
+## Data Storage
+
+Gigi automatically saves all tasks to ./data/Gigi.txt after every change.
+If the task file is missing, Gigi creates a new one.
