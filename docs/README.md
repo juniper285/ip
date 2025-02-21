@@ -24,7 +24,7 @@ Gigi is a command-line-based chatbot designed to help users manage their tasks e
 ## ✨ Features
 
 ### 1️⃣ Adding a To-Do Task: `todo`
-Adds a new To-Do task to the task list.
+Adds a new To-Do task.
 - **Format:** `todo TASK_DESCRIPTION`
 - **Example:** `todo Buy groceries`
 
