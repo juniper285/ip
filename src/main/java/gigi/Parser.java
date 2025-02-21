@@ -10,6 +10,7 @@ import gigi.commands.DeadlineCommand;
 import gigi.commands.DeleteCommand;
 import gigi.commands.EventCommand;
 import gigi.commands.FindCommand;
+import gigi.commands.HelpCommand;
 import gigi.commands.ListCommand;
 import gigi.commands.MarkCommand;
 import gigi.commands.ToDoCommand;
@@ -52,7 +53,7 @@ public class Parser {
             }
         }
         case UnmarkCommand.COMMAND_WORD -> new UnmarkCommand(Integer.parseInt(details));
-        //case HelpCommand.COMMAND_WORD -> new HelpCommand();
+        case HelpCommand.COMMAND_WORD -> new HelpCommand();
         default -> throw new GigiException("MEOW! Invalid command. What do you mean?");
         };
     }

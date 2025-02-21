@@ -118,4 +118,22 @@ public class Ui {
     public void showLoadingError() {
         System.out.println("MEOW! Failed to load previous tasks.");
     }
+
+    /**
+     * Displays a help message.
+     */
+    public String showHelpMessage() {
+        return "MEOW! Here are the commands you can use:\n"
+                + "1. todo TASK_DESCRIPTION - Add a ToDo task\n"
+                + "2. deadline TASK_DESCRIPTION /by YYYY-MM-DD HH:mm - Add a Deadline task\n"
+                + "3. event TASK_DESCRIPTION /from YYYY-MM-DD HH:mm /to YYYY-MM-DD HH:mm - Add an Event task\n"
+                + "4. list - Show all tasks\n"
+                + "5. mark INDEX - Mark a task as done\n"
+                + "6. unmark INDEX - Unmark a task as not done\n"
+                + "7. delete INDEX - Delete a task\n"
+                + "8. find KEYWORD - Find tasks with a keyword\n"
+                + "9. bye - Exit Gigi\n\n"
+                + "Use the correct format to avoid my wrath! MEOW!";
+    }
+
 }
