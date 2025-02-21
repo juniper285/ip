@@ -28,8 +28,8 @@ public class Ui {
                 + "（ﾟ､ ｡ 7\n"
                 + "⠀ |、ﾞ~ヽ\n"
                 + "  じしf_, )ノ \n";
-        return
-                "MEOW! \n"
+        return logo
+                + "MEOW! \n"
                         + "I'm Gigi, the mighty demon keeping this place running. \n"
                         + "What do you want? \n";
     }
