@@ -1,13 +1,12 @@
 package gigi.ui;
 
-import gigi.tasks.Tasklist;
 import java.util.Scanner;
 
+import gigi.tasks.Tasklist;
+
 /**
- *
  * Handles user interactions with chatbot, Gigi.
  * This class provides methods to display messages and show errors or notifications.
- *
  * */
 
 public class Ui {
@@ -24,11 +23,11 @@ public class Ui {
      * Displays the welcome message when the chatbot starts.
      */
     public String showWelcome() {
-        String logo = "\n" +
-                "⠀ ／|_     \n" +
-                "（ﾟ､ ｡ 7\n" +
-                "⠀ |、ﾞ~ヽ\n" +
-                "  じしf_, )ノ \n";
+        String logo = "\n"
+                + "⠀ ／|_     \n"
+                + "（ﾟ､ ｡ 7\n"
+                + "⠀ |、ﾞ~ヽ\n"
+                + "  じしf_, )ノ \n";
         return
                 "MEOW! \n"
                         + "I'm Gigi, the mighty demon keeping this place running. \n"
@@ -84,9 +83,7 @@ public class Ui {
     }
 
     /**
-     * Displays the exit message when the chatbot shuts down.
-     *
-     * @return
+     * Displays message for exiting program.
      */
     public String showByeMessage() {
         return "See ya! \n"
@@ -95,9 +92,7 @@ public class Ui {
     }
 
     /**
-     * Displays the current number of tasks in the task list.
-     *
-     * @param tasks The task list whose size is displayed.
+     * Displays message to indicate size of task list.
      */
     public String showTaskNumber(Tasklist tasks) {
         return String.format("Now you have %d task(s).%n", tasks.getSize());

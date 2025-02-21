@@ -104,12 +104,11 @@ public class Events extends Task {
      */
     @Override
     public String toString() {
-        return super.toString() + " (from: " + this.startTime.format(dateTimeFormatter) + " to: " + this.endTime.format(dateTimeFormatter) + ")";
+        return super.toString() + " (from: " + this.startTime.format(dateTimeFormatter)
+                + " to: " + this.endTime.format(dateTimeFormatter) + ")";
     }
 
     public boolean isComplete() {
         return super.isComplete();
     }
 }
-
-

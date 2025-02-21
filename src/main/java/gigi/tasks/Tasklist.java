@@ -169,5 +169,4 @@ public class Tasklist implements Iterable<Task> {
                 .thenComparing(task -> ((Task) task).getTaskName().toLowerCase()) //
         );
     }
-
 }

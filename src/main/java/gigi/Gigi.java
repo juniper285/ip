@@ -12,14 +12,18 @@ import gigi.ui.Ui;
  * Main class for Gigi chatbot application.
  * It initializes components, processes user input, and manages task storage.
  * */
-@SuppressWarnings("checkstyle:Regexp")
 public class Gigi {
     private static final String FILE_PATH = "./data/Gigi.txt";
     private final Storage storage;
     private Tasklist tasks;
     private final Ui ui;
 
-    @SuppressWarnings("checkstyle:MissingJavadocMethod")
+    /**
+     * Constructs a Gigi chatbot instance with the specified file path.
+     * Initializes the UI, storage, and task list.
+     *
+     * @param filePath The file path where task data is stored
+     * */
     public Gigi(String filePath) {
         ui = new Ui();
         storage = new Storage(filePath);
@@ -38,7 +42,9 @@ public class Gigi {
         new Gigi(FILE_PATH).run();
     }
 
-    @SuppressWarnings("checkstyle:MissingJavadocMethod")
+    /**
+     * Runs the chatbot, continuously processing user input until the exit command is given.
+     */
     public void run() {
         ui.showWelcome();
         boolean isExit = false;
