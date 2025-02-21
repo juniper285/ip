@@ -32,6 +32,7 @@ public class Parser {
      */
     public static Command parse(String input) throws GigiException {
         assert input != null && !input.isBlank() : "Command input should not be null or empty";
+        input = input.toLowerCase();
         String[] parts = input.split("\\s+", 2);
         String commandWord = parts[0];
         String details = parts.length > 1 ? parts[1] : "";
@@ -54,7 +55,9 @@ public class Parser {
         }
         case UnmarkCommand.COMMAND_WORD -> new UnmarkCommand(Integer.parseInt(details));
         case HelpCommand.COMMAND_WORD -> new HelpCommand();
-        default -> throw new GigiException("MEOW! Invalid command. What do you mean?");
+        default -> throw new GigiException(
+                "MEOW! Invalid command. What do you mean?\n"
+                + "Type \"help\" for list of commands");
         };
     }
 

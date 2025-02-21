@@ -119,20 +119,31 @@ public class Ui {
         System.out.println("MEOW! Failed to load previous tasks.");
     }
 
+
     /**
      * Displays a help message.
      */
     public String showHelpMessage() {
-        return "MEOW! Here are the commands you can use:\n"
-                + "1. todo TASK_DESCRIPTION - Add a ToDo task\n"
-                + "2. deadline TASK_DESCRIPTION /by YYYY-MM-DD HH:mm - Add a Deadline task\n"
-                + "3. event TASK_DESCRIPTION /from YYYY-MM-DD HH:mm /to YYYY-MM-DD HH:mm - Add an Event task\n"
-                + "4. list - Show all tasks\n"
-                + "5. mark INDEX - Mark a task as done\n"
-                + "6. unmark INDEX - Unmark a task as not done\n"
-                + "7. delete INDEX - Delete a task\n"
-                + "8. find KEYWORD - Find tasks with a keyword\n"
-                + "9. bye - Exit Gigi\n\n"
+        return "MEOW! Here are the commands you can use:\n\n"
+                + "1. To add a ToDo task "
+                + "→ You can use \"todo <TASK_DESCRIPTION>\" \n"
+                + "2. To add a Deadline task "
+                + "→ \"deadline <TASK_DESCRIPTION> /by <YYYY-MM-DD HH:mm>\" \n"
+                + "3. To add an Event task "
+                + "→ \"event <TASK_DESCRIPTION> "
+                + "/from <YYYY-MM-DD HH:mm> "
+                + "/to <YYYY-MM-DD HH:mm>\"\n "
+                + "4. To show all tasks "
+                + "→ \"list \""
+                + "5. To mark a task as done "
+                + "→ \"mark <INDEX>\"\n"
+                + "6. To mark a task as not done "
+                + "→ \"unmark <INDEX>\"\n"
+                + "7. To delete a task "
+                + "→ \"delete <INDEX>\"\n"
+                + "8. To find tasks with a keyword "
+                + "→ \"find <KEYWORD>\"\n"
+                + "9. To exit the chat → \"bye\"\n\n"
                 + "Use the correct format to avoid my wrath! MEOW!";
     }
 
